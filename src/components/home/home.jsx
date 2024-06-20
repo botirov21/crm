@@ -1,12 +1,14 @@
 import React from 'react'
-import Navbar from '../others/navbar/navbar'
-import Footer from '../others/footer/footer'
+import App from '../others/sidebar/sidebar'
+
 
 const Home = () => {
   return (
-    <div>
-        <Navbar/>
-        <Footer/>
+    <div style={{width:"100vw",
+    justifyContent:"center",
+    alignItems:"center",
+    height:"100vh", backgroundColor:"black"}}>
+    home
     </div>
   )
 }
