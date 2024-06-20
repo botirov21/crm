@@ -21,7 +21,10 @@ function Sidenavmenubar() {
             activeStyle={{ fontWeight: "bold", color: "blue" }}
           >
             <li>
-              <HomeIcon className="icons"></HomeIcon>
+              <HomeIcon className="icons" style={{
+              display:"flex",
+              marginLeft:"15px"
+            }}/>
               <div className="menu-text">Home</div>
             </li>
           </NavLink>
@@ -30,7 +33,10 @@ function Sidenavmenubar() {
             activeStyle={{ fontWeight: "bold", color: "blue" }}
           >
             <li>
-              <InfoIcon className="icons"></InfoIcon>
+              <InfoIcon className="icons" style={{
+              display:"flex",
+              marginLeft:"15px"
+            }}/>
               <div className="menu-text">About</div>
             </li>
           </NavLink>
@@ -39,17 +45,22 @@ function Sidenavmenubar() {
             activeStyle={{ fontWeight: "bold", color: "blue" }}
           >
             <li>
-              <WorkIcon className="icons"></WorkIcon>
+              <WorkIcon className="icons" style={{
+              display:"flex",
+              marginLeft:"15px"
+            }}/>
               <div className="menu-text">Careers</div>
-              0
             </li>
           </NavLink>
           <NavLink
             to="/gallery"
             activeStyle={{ fontWeight: "bold", color: "blue" }}
           >
-            <li>
-              <PermMediaIcon className="icons"></PermMediaIcon>
+            <li >
+              <PermMediaIcon className="icons" style={{
+              display:"flex",
+              marginLeft:"15px"
+            }}/>
               <div className="menu-text">Gallery</div>
             </li>
           </NavLink>
@@ -58,7 +69,10 @@ function Sidenavmenubar() {
             activeStyle={{ fontWeight: "bold", color: "blue" }}
           >
             <li>
-              <ContactPageIcon className="icons"></ContactPageIcon>
+              <ContactPageIcon className="icons" style={{
+              display:"flex",
+              marginLeft:"15px"
+            }}/>
               <div className="menu-text">Contact us</div>
             </li>
           </NavLink>
