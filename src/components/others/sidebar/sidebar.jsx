@@ -1,11 +1,15 @@
 import React from "react";
 import "./sidebar.css";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import WorkIcon from "@mui/icons-material/Work";
-import PermMediaIcon from "@mui/icons-material/PermMedia";
-import ContactPageIcon from "@mui/icons-material/ContactPage";
+//mui icons
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import LayersIcon from "@mui/icons-material/Layers";
+import SchoolIcon from "@mui/icons-material/School";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import { NavLink } from "react-router-dom";
+import { SideLine } from "./sidebarStyle";
+
 function Sidenavmenubar() {
   return (
     <div className="side-nav">
@@ -18,62 +22,52 @@ function Sidenavmenubar() {
           <NavLink
             exact={true}
             to="/"
-            activeStyle={{ fontWeight: "bold", color: "blue" }}
+            className={({ isActive }) => (isActive ? "active" : "")}
+            style={{ textDecoration: "none" }}
           >
             <li>
-              <HomeIcon className="icons" style={{
-              display:"flex",
-              marginLeft:"15px"
-            }}/>
-              <div className="menu-text">Home</div>
+              <GroupAddIcon className="icons" />
+              <div className="menu-text">Leads</div>
             </li>
           </NavLink>
           <NavLink
-            to="/about"
-            activeStyle={{ fontWeight: "bold", color: "blue" }}
+            to="/teachers"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            style={{ textDecoration: "none" }}
           >
             <li>
-              <InfoIcon className="icons" style={{
-              display:"flex",
-              marginLeft:"15px"
-            }}/>
-              <div className="menu-text">About</div>
+              <ManageAccountsIcon className="icons" />
+              <div className="menu-text">Teachers</div>
             </li>
           </NavLink>
           <NavLink
             to="/careers"
-            activeStyle={{ fontWeight: "bold", color: "blue" }}
+            className={({ isActive }) => (isActive ? "active" : "")}
+            style={{ textDecoration: "none" }}
           >
             <li>
-              <WorkIcon className="icons" style={{
-              display:"flex",
-              marginLeft:"15px"
-            }}/>
-              <div className="menu-text">Careers</div>
+              <LayersIcon className="icons" />
+              <div className="menu-text">Groups</div>
             </li>
           </NavLink>
           <NavLink
             to="/gallery"
-            activeStyle={{ fontWeight: "bold", color: "blue" }}
+            className={({ isActive }) => (isActive ? "active" : "")}
+            style={{ textDecoration: "none" }}
           >
-            <li >
-              <PermMediaIcon className="icons" style={{
-              display:"flex",
-              marginLeft:"15px"
-            }}/>
-              <div className="menu-text">Gallery</div>
+            <li>
+              <SchoolIcon className="icons" />
+              <div className="menu-text">Students</div>
             </li>
           </NavLink>
           <NavLink
             to="/contact"
-            activeStyle={{ fontWeight: "bold", color: "blue" }}
+            className={({ isActive }) => (isActive ? "active" : "")}
+            style={{ textDecoration: "none" }}
           >
             <li>
-              <ContactPageIcon className="icons" style={{
-              display:"flex",
-              marginLeft:"15px"
-            }}/>
-              <div className="menu-text">Contact us</div>
+              <MonetizationOnIcon className="icons" />
+              <div className="menu-text">Budget</div>
             </li>
           </NavLink>
         </ul>
@@ -83,3 +77,25 @@ function Sidenavmenubar() {
 }
 
 export default Sidenavmenubar;
+// import React from 'react'
+// import { SidebarComponent, SidebarHeader } from './sidebarStyle'
+// import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
+// const Sidebar = () => {
+//   return (
+//     <div>
+//       <SidebarComponent>
+//         <SidebarHeader>
+//           <button>Logotype</button>
+//           <div>
+//             <AddLocationAltIcon/>
+//             <select>
+//               <option value="Location">Termiz</option>
+//             </select>
+//           </div>
+//         </SidebarHeader>
+//       </SidebarComponent>
+//     </div>
+//   )
+// }
+
+// export default Sidebar
