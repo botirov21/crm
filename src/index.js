@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/home/home";
 import Sidenavmenubar from "./components/others/sidebar/sidebar";
 import Teachers from "./components/pages/teachers/teachers";
+import ProfileTeacher from "./components/pages/teachers/profileTeacher";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,6 +17,7 @@ root.render(
         {/* Main routes */}
         <Route path="/home" element={<Home />} />
         <Route path="/teachers" element={<Teachers/>}/>
+        <Route path="/teachers/:id" element={<ProfileTeacher/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

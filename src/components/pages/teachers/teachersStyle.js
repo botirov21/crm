@@ -125,3 +125,93 @@ export const AddTeacherBtn = styled.button`
   font-weight: 400;
   line-height: 24px;
 `;
+// teacher's profile page style
+export const TeachersProfilePage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 970px;
+  height: 100vh;
+`;
+export const ProfileTab = styled.article`
+  display: flex;
+  flex-direction: row;
+`;
+export const TeacherInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 340px;
+  height: 376px;
+  flex-shrink: 0;
+  border-radius: 26px;
+  border: 1px solid var(--200, #cfcbea);
+  background: var(--Color-7, #fff);
+  box-shadow: 2px 2px 4px 0px rgba(174, 191, 237, 0.25);
+  .pinkHeader {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--300, #bfbae3);
+    height: 106px;
+    width: 328px;
+    margin-top: 5px;
+    img {
+      width: 88px;
+      height: 88px;
+      flex-shrink: 0;
+      border-radius: 9999px;
+      background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+      margin: 0px 100px 0px 0px;
+      border-radius: 999px;
+      border: 4px solid var(--Color-7, #fff);
+      background: var(
+        --600,
+        linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+        #2c2669
+      );
+    }
+    h1 {
+      color: var(--600, #2c2669);
+
+      font-family: "Public Sans";
+      /* font-size: clamp(18px,2vw+1rem, 24px); */
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+    }
+  }
+  .teacher-status {
+    display: flex;
+    gap: 10px;
+    span {
+      display: flex;
+      justify-content: center;
+      border-radius: 6px;
+      background: var(--400, #a098d5);
+      display: flex;
+      width: 50px;
+      height: 30px;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--100, #EFEEF8);
+font-family: Inter;
+font-size: 10px;
+font-style: normal;
+font-weight: 700;
+line-height: 16px; /* 160% */
+    }
+  }
+`;
+export const TeacherInfoDetails = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+`;
