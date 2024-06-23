@@ -67,7 +67,7 @@ const StyledMenu = styled((props) => (
 }));
 
 const ProfileTeacher = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const [activeTab, setActiveTab] = useState("Profile");
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
