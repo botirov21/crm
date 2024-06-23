@@ -1,22 +1,15 @@
-import React, { useState } from 'react'
-import { TeacherTabConrol, TeachersProfilePage } from './teachersStyle'
+import React, { useState } from "react";
+import { TeacherTabConrol, TeachersProfilePage } from "./teachersStyle";
 
 const TeacherSalary = () => {
-      const [activeTab, setActiveTab] = useState("");
- 
- 
+  const [activeTab, setActiveTab] = useState("Income");
+
   const renderContent = () => {
     switch (activeTab) {
       case "Income":
-        return (
-          <div>
-         Income page
-          </div>
-        );
+        return <div>Income page</div>;
       case "Expense":
-        return <div>
-           Expense
-        </div>;
+        return <div>Expense</div>;
       default:
         return null;
     }
@@ -24,16 +17,15 @@ const TeacherSalary = () => {
 
   return (
     <TeachersProfilePage>
-        <TeacherTabConrol>
-                 <div
+      <TeacherTabConrol>
+        <div
           className="tab-list"
           onClick={() => setActiveTab("Income")}
           style={{
-            backgroundColor:
-              activeTab === "Income" ? "#2C2669" : "transparent",
+            backgroundColor: activeTab === "Income" ? "#2C2669" : "transparent",
             color: activeTab === "Income" ? "#fff" : "#2C2669",
-            borderTopLeftRadius:"10px",
-             borderBottomLeftRadius:"10px"
+            borderTopLeftRadius: "10px",
+            borderBottomLeftRadius: "10px",
           }}
         >
           Profile
@@ -42,18 +34,19 @@ const TeacherSalary = () => {
           className="tab-list"
           onClick={() => setActiveTab("Expense")}
           style={{
-            backgroundColor: activeTab === "Expense" ? "#2C2669" : "transparent",
+            backgroundColor:
+              activeTab === "Expense" ? "#2C2669" : "transparent",
             color: activeTab === "Expense" ? "#fff" : "#2C2669",
-             borderTopRightRadius:"10px",
-             borderBottomRightRadius:"10px"
+            borderTopRightRadius: "10px",
+            borderBottomRightRadius: "10px",
           }}
         >
           Salary
         </div>
-        </TeacherTabConrol>
-            <div className="tab-content">{renderContent()}</div>
+      </TeacherTabConrol>
+      <div className="tab-content">{renderContent()}</div>
     </TeachersProfilePage>
-  )
-}
+  );
+};
 
-export default TeacherSalary
+export default TeacherSalary;
