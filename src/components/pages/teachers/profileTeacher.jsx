@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { mockTeacher } from "../../mock/teachers"; // Adjust the import path if necessary
-import { TeacherInfo, TeacherInfoDetails, TeachersProfilePage } from "./teachersStyle";
+import { mockTeacher } from "../../mock/teachers"; 
+import {
+  PinkHeader,
+  TeacherInfo,
+  TeacherInfoDetails,
+  TeacherPosition,
+  TeacherProfileName,
+  TeacherTabConrol,
+  TeachersProfilePage,
+} from "./teachersStyle";
+//mui components
 import { styled, alpha } from "@mui/material/styles";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import EditIcon from "@mui/icons-material/Edit";
 import Divider from "@mui/material/Divider";
-import DeleteIcon from '@mui/icons-material/Delete';
-import SmsIcon from '@mui/icons-material/Sms';
+import DeleteIcon from "@mui/icons-material/Delete";
+import SmsIcon from "@mui/icons-material/Sms";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const StyledMenu = styled((props) => (
@@ -56,6 +65,7 @@ const StyledMenu = styled((props) => (
 
 const ProfileTeacher = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [activeTab, setActiveTab] = useState("Profile");
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -82,76 +92,127 @@ const ProfileTeacher = () => {
     );
   }
 
-  const { fullName, phoneNumber, groups, percent, telegram, balance } =
-    teacher.teacher;
+  const { fullName, phoneNumber, percent, telegram, balance } = teacher.teacher;
+  const initials = fullName
+    .split(" ")
+    .map((name) => name.charAt(0))
+    .join("");
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "Profile":
+        return (
+          <div>
+            <TeacherInfo>
+              <PinkHeader>
+                <div className="teacher-card">{initials}</div>
+                <MoreVertIcon
+                  id="demo-customized-button"
+                  aria-controls={open ? "demo-customized-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  variant="contained"
+                  disableElevation
+                  onClick={handleClick}
+                  style={{
+                    marginRight: "20px",
+                  }}
+                />
+                <StyledMenu
+                  id="demo-customized-menu"
+                  MenuListProps={{
+                    "aria-labelledby": "demo-customized-button",
+                  }}
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                >
+                  <MenuItem onClick={handleClose} disableRipple>
+                    <EditIcon />
+                    Edit
+                  </MenuItem>
+                  <MenuItem onClick={handleClose} disableRipple>
+                    <SmsIcon />
+                    SMS
+                  </MenuItem>
+                  <Divider sx={{ my: 0.5 }} />
+                  <MenuItem onClick={handleClose} disableRipple>
+                    <DeleteIcon />
+                    Delete
+                  </MenuItem>
+                </StyledMenu>
+              </PinkHeader>
+              <TeacherProfileName>{fullName}</TeacherProfileName>
+              <TeacherPosition>
+                <span>Teacher</span>
+                <span>CEO</span>
+              </TeacherPosition>
+              <div style={{ padding: "20px" }}>
+                <TeacherInfoDetails>
+                  <span className="label">Phone:</span>
+                  <div className="caption">{phoneNumber}</div>
+                </TeacherInfoDetails>
+                <TeacherInfoDetails>
+                  <span className="label">Telegram:</span>
+                  <div className="caption">{telegram}</div>
+                </TeacherInfoDetails>
+                <TeacherInfoDetails>
+                  <span className="label">Percent:</span>
+                  <div className="caption">{percent}</div>
+                </TeacherInfoDetails>
+                <TeacherInfoDetails>
+                  <span className="label">Balance:</span>
+                  <div className="caption">{balance}</div>
+                </TeacherInfoDetails>
+              </div>
+            </TeacherInfo>
+          </div>
+        );
+      case "Groups":
+        return <div>Groups Content</div>;
+      case "Salary":
+        return <div>Salary Content</div>;
+      default:
+        return null;
+    }
+  };
 
   return (
     <TeachersProfilePage>
-      <TeacherInfo>
-        <div className="pinkHeader">
-          <div style={{display:"flex", flexDirection:"column", marginTop:'150px',marginLeft:"-30px"}}>
-             <img src="" alt="teacher image" />
-             <h1>{fullName}</h1>
-             <div className="teacher-status">
-                <span>Teacher</span>
-                <span>CEO</span>
-             </div>
-          </div>
-          <MoreVertIcon
-            id="demo-customized-button"
-            aria-controls={open ? "demo-customized-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-            variant="contained"
-            disableElevation
-            onClick={handleClick}
-          />
-          <StyledMenu
-            id="demo-customized-menu"
-            MenuListProps={{
-              "aria-labelledby": "demo-customized-button",
-            }}
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-          >
-            <MenuItem onClick={handleClose} disableRipple>
-              <EditIcon />
-              Edit
-            </MenuItem>
-            <MenuItem onClick={handleClose} disableRipple>
-              <SmsIcon/>
-              SMS
-            </MenuItem>
-            <Divider sx={{ my: 0.5 }} />
-            <MenuItem onClick={handleClose} disableRipple>
-              <DeleteIcon/>
-              Delete
-            </MenuItem>
-          </StyledMenu>
+      <TeacherTabConrol>
+        <div
+          className="tab-list"
+          onClick={() => setActiveTab("Profile")}
+          style={{
+            backgroundColor:
+              activeTab === "Profile" ? "#2C2669" : "transparent",
+            color: activeTab === "Profile" ? "#fff" : "#2C2669",
+          }}
+        >
+          Profile
         </div>
-        {/* <div style={{ padding: "20px" }}>
-          <h1>{fullName}</h1>
-          <p>Phone Number: {phoneNumber || "No data"}</p>
-          <p>Groups: {groups || "No data"}</p>
-          <p>Percent: {percent || "No data"}</p>
-          <p>Telegram: {telegram || "No data"}</p>
-          <p>Balance: {balance || "No data"}</p>
-        </div> */}
-         <TeacherInfoDetails>
-        <div>
-         <ul>
-            <li>Branch</li>
-            <li>Branch</li>
-            <li>Branch</li>
-            <li>Branch</li>
-            <li>Branch</li>
-            </ul>   
+        <div
+          className="tab-list"
+          onClick={() => setActiveTab("Groups")}
+          style={{
+            backgroundColor: activeTab === "Groups" ? "#2C2669" : "transparent",
+            color: activeTab === "Groups" ? "#fff" : "#2C2669",
+          }}
+        >
+          Groups
         </div>
-        <div></div>
-      </TeacherInfoDetails>
-      </TeacherInfo>
-     
+        <div
+          className="tab-list"
+          onClick={() => setActiveTab("Salary")}
+          style={{
+            backgroundColor: activeTab === "Salary" ? "#2C2669" : "transparent",
+            color: activeTab === "Salary" ? "#fff" : "#2C2669",
+          }}
+        >
+          Salary
+        </div>
+      </TeacherTabConrol>
+      <div className="tab-content">{renderContent()}</div>
     </TeachersProfilePage>
   );
 };

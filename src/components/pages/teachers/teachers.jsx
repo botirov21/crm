@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  AddTeacherButton,
   TeachersComponent,
   TeachersTop,
 } from "./teachersStyle";

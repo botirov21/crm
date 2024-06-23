@@ -134,10 +134,13 @@ export const TeachersProfilePage = styled.div`
   width: 100%;
   max-width: 970px;
   height: 100vh;
+  margin-left: 100px;
 `;
 export const ProfileTab = styled.article`
   display: flex;
   flex-direction: row;
+  width: 100vw;
+  max-width: 970px;
 `;
 export const TeacherInfo = styled.div`
   display: flex;
@@ -151,67 +154,123 @@ export const TeacherInfo = styled.div`
   border: 1px solid var(--200, #cfcbea);
   background: var(--Color-7, #fff);
   box-shadow: 2px 2px 4px 0px rgba(174, 191, 237, 0.25);
-  .pinkHeader {
+`;
+export const PinkHeader = styled.article`
+  position: relative;
+  width: 328px;
+  height: 106px;
+  border-radius: 20px;
+  background: #bfbae3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 5px;
+  .teacher-card {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    border: 4px solid #fff;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    border-radius: 20px;
-    background: var(--300, #bfbae3);
-    height: 106px;
-    width: 328px;
-    margin-top: 5px;
-    img {
-      width: 88px;
-      height: 88px;
-      flex-shrink: 0;
-      border-radius: 9999px;
-      background: url(<path-to-image>) lightgray 50% / cover no-repeat;
-      margin: 0px 100px 0px 0px;
-      border-radius: 999px;
-      border: 4px solid var(--Color-7, #fff);
-      background: var(
-        --600,
-        linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
-        #2c2669
-      );
-    }
-    h1 {
-      color: var(--600, #2c2669);
-
-      font-family: "Public Sans";
-      /* font-size: clamp(18px,2vw+1rem, 24px); */
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 24px;
-    }
+    background: #a098d5;
+    color: #2c2669;
+    font-family: "Public Sans";
+    font-size: clamp(16px, 2vw+1rem, 50px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
   }
-  .teacher-status {
+  img {
+    width: 25px;
+  }
+`;
+export const TeacherProfileName = styled.h1`
+  margin-top: 40px;
+  margin-left: -150px;
+  color: #2c2669;
+  font-family: "Public Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+`;
+export const TeacherPosition = styled.div`
+  margin: 0 150px 0 0;
+  display: flex;
+  gap: 8px;
+  span {
     display: flex;
+    padding: 3px 10px;
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
-    span {
-      display: flex;
-      justify-content: center;
-      border-radius: 6px;
-      background: var(--400, #a098d5);
-      display: flex;
-      width: 50px;
-      height: 30px;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      color: var(--100, #EFEEF8);
-font-family: Inter;
-font-size: 10px;
-font-style: normal;
-font-weight: 700;
-line-height: 16px; /* 160% */
-    }
+    border-radius: 6px;
+    background: #b7b2dd;
+    color: #efeef8;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
   }
 `;
 export const TeacherInfoDetails = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  gap: 150px;
+  justify-content: space-between;
+  margin-top: 13px;
+  color: #a098d5;
+  font-family: "Public Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+
+  .label {
+    color: #2c2669;
+    font-weight: 700;
+  }
+
+  .caption {
+    color: #2c2669;
+    text-align: right;
+    font-weight: 700;
+  }
 `;
+//teachers  page tab controller
+export const TeacherTabConrol = styled.div`
+  width: 100%;
+  max-width: 970px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 100px;
+
+  .tab-list {
+    display: flex;
+    flex-direction: column;
+    width: 187px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #2c2669;
+    color: var(--600, #2c2669);
+    cursor: pointer;
+    font-family: "Public Sans";
+    font-size: clamp(14px, 2vw+1rem, 20px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  .tab-content {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+`

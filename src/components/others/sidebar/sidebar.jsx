@@ -6,9 +6,8 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import LayersIcon from "@mui/icons-material/Layers";
 import SchoolIcon from "@mui/icons-material/School";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import { NavLink } from "react-router-dom";
-import { SideLine } from "./sidebarStyle";
+
 
 function Sidenavmenubar() {
   return (
