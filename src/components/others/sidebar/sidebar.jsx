@@ -60,7 +60,7 @@ function Sidenavmenubar() {
             </li>
           </NavLink>
           <NavLink
-            to="/contact"
+            to="/budget"
             className={({ isActive }) => (isActive ? "active" : "")}
             style={{ textDecoration: "none" }}
           >
