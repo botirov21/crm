@@ -9,6 +9,7 @@ a {
     left: 0;
     height: 100vh;
     z-index: 1000;
+    background: #fff;
 }
 
 input#menu {

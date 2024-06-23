@@ -19,6 +19,9 @@ import Divider from "@mui/material/Divider";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SmsIcon from "@mui/icons-material/Sms";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import NoInformationPage from "../../others/messages/noInfoPage";
+import TeacherGroups from "./teacherGroups";
+import TeacherSalary from "./teacherSalary";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -87,7 +90,7 @@ const ProfileTeacher = () => {
           alignItems: "center",
         }}
       >
-        Teacher not found
+       <NoInformationPage/>
       </div>
     );
   }
@@ -169,9 +172,13 @@ const ProfileTeacher = () => {
           </div>
         );
       case "Groups":
-        return <div>Groups Content</div>;
+        return <div>
+            <TeacherGroups/>
+        </div>;
       case "Salary":
-        return <div>Salary Content</div>;
+        return <div>
+          <TeacherSalary/>
+        </div>;
       default:
         return null;
     }
@@ -187,6 +194,8 @@ const ProfileTeacher = () => {
             backgroundColor:
               activeTab === "Profile" ? "#2C2669" : "transparent",
             color: activeTab === "Profile" ? "#fff" : "#2C2669",
+            borderTopLeftRadius:"10px",
+             borderBottomLeftRadius:"10px"
           }}
         >
           Profile
@@ -207,6 +216,8 @@ const ProfileTeacher = () => {
           style={{
             backgroundColor: activeTab === "Salary" ? "#2C2669" : "transparent",
             color: activeTab === "Salary" ? "#fff" : "#2C2669",
+             borderTopRightRadius:"10px",
+             borderBottomRightRadius:"10px"
           }}
         >
           Salary

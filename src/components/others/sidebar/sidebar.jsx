@@ -20,7 +20,7 @@ function Sidenavmenubar() {
         <ul>
           <NavLink
             exact={true}
-            to="/"
+            to="/leads"
             className={({ isActive }) => (isActive ? "active" : "")}
             style={{ textDecoration: "none" }}
           >

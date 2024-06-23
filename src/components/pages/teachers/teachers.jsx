@@ -5,8 +5,6 @@ import {
 } from "./teachersStyle";
 //mui components
 import { TextField } from "@mui/material";
-// import AddIcon from "@mui/icons-material/Add";
-// import SearchIcon from "@mui/icons-material/Search";
 import TeachersModal from "./modal";
 import DataTable from "./teachersTable";
 const Teachers = () => {
