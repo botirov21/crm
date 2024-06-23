@@ -7,6 +7,7 @@ import Home from "./components/home/home";
 import Sidenavmenubar from "./components/others/sidebar/sidebar";
 import Teachers from "./components/pages/teachers/teachers";
 import ProfileTeacher from "./components/pages/teachers/profileTeacher";
+import Leads from "./components/pages/leads/leads";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +18,7 @@ root.render(
         {/* Main routes */}
         <Route path="/home" element={<Home />} />
         <Route path="/teachers" element={<Teachers/>}/>
+        <Route path="/leads" element={<Leads/>}/>
         <Route path="/teachers/:id" element={<ProfileTeacher/>}/>
       </Routes>
     </BrowserRouter>

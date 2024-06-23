@@ -10,8 +10,7 @@ export const TeachersComponent = styled.div`
   gap: 50px;
 `;
 export const TeachersTop = styled.article`
-  width: 100vw;
-  max-width: 970px;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -129,18 +128,17 @@ export const AddTeacherBtn = styled.button`
 export const TeachersProfilePage = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 970px;
+
   height: 100vh;
-  margin-left: 100px;
+  padding-top: 60px;
+  background: var(--100, #EFEEF8);
 `;
 export const ProfileTab = styled.article`
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  max-width: 970px;
+  width: 60%;
 `;
 export const TeacherInfo = styled.div`
   display: flex;
@@ -243,8 +241,7 @@ export const TeacherInfoDetails = styled.div`
 `;
 //teachers  page tab controller
 export const TeacherTabConrol = styled.div`
-  width: 100%;
-  max-width: 970px;
+  width: 60%;
   height: 50px;
   display: flex;
   justify-content: center;
@@ -271,6 +268,127 @@ export const TeacherTabConrol = styled.div`
   .tab-content {
     margin-top: 20px;
     width: 100%;
+    
   }
   
+`
+//teacher groups style
+export const GroupsComponent=styled.article`
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+width: 60%;
+height: 100vh;
+
+`
+export const GroupsInfo=styled.div`
+border-radius: 20px;
+background: var(--Color-7, #FFF);
+max-width: 522px;
+width: 40vw;
+height: fit-content;
+padding-bottom: 40px;
+flex-shrink: 0;
+`
+export const GroupDetails=styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+width: 100%;
+`
+export const GroupDetailsRow=styled.div`
+   display: flex;
+   flex-direction: row;
+    justify-content: space-between;
+    margin: 0 20px;
+    color: #A098D5;
+    align-items: center;
+    font-family: "Public Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+`
+export const DetailP=styled.p`
+color: var(--400, #A098D5);
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 16px; 
+padding-top: 10px;
+`
+export const GroupName=styled.p`
+color: var(--600, #2C2669);
+font-family: "Public Sans";
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; 
+`
+export const CourseName=styled.h1`
+color: var(--500, #6053B9);
+font-family: "Public Sans";
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 32px; 
+`
+export const StartDate=styled.h2`
+color: var(--500, #6053B9);
+font-family: "Public Sans";
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 133.333% */
+`
+export const StudentNumber=styled.div`
+display: flex;
+flex-direction: row;
+gap: 5px;
+span{
+  display: flex;
+padding: 6px 10px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 4px;
+background: var(--100, #EFEEF8);
+color: var(--500, #6053B9);
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 16px; 
+}
+`
+
+export const Line=styled.div`
+height: 1px;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #2C2669;
+width: 100%;
+ margin: 50px 0 20px 0;
+`
+export const SeeGroupBtn=styled.button`
+display: inline-flex;
+
+justify-content: center;
+align-items: center;
+gap: 10px;
+height: 40px;
+width: 100px;
+border-radius: 6px;
+background: var(--600, linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #2C2669);
+color: var(--50, var(--Color-7, #FFF));
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 16px; 
+&:hover{
+  cursor: pointer;
+  background: var(--100, #EFEEF8);
+  color: #2C2669;
+}
 `

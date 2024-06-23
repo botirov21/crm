@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'id', headerName: 'ID', width: 100 },
+  { field: 'id', headerName: 'ID', width: 100  },
   { 
     field: 'fullName', 
     headerName: 'Full name', 
@@ -30,8 +30,8 @@ const rows = mockTeacher.teacherInfo.map(teacher => ({
 
 export default function DataTable() {
   return (
-    <div style={{ height: 400, width: '100%', maxWidth: '970px' }}>
-      <DataGrid
+    <div style={{ height: 400, width: '60%',background:"#fff"}}>
+      <DataGrid 
         rows={rows}
         columns={columns}
         initialState={{
