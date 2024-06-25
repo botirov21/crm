@@ -6,9 +6,13 @@ import {
   FilterWrapper,
   TotalValue,
   MenuItemStyled,
-} from "./budgetStyle"; 
+  ExpenseModalWrapper,
+} from "./budgetStyle";
 import DataTable from "./budgetTable";
 import { FormControl, Select } from "@mui/material";
+import CategoryDataTable from "./categoryTable";
+import BudgetModal from "./budgetModal";
+import ExpenseDataTable from "./expenseTable";
 
 const Budget = () => {
   const [value, setValue] = useState("Total Income");
@@ -28,9 +32,9 @@ const Budget = () => {
       case "Income":
         return <DataTable />;
       case "Category":
-        return <DataTable />;
+        return <CategoryDataTable />;
       case "Expense":
-        return <DataTable />;
+        return <ExpenseDataTable/>;
       default:
         return null;
     }
@@ -76,96 +80,133 @@ const Budget = () => {
             Expense
           </div>
         </BudgetTabConrol>
-        <FormControl sx={{ m: 1, maxWidth: 300, padding: "" }} size="small">
-          <Select
-            sx={{
-              boxShadow: "none",
-              ".MuiOutlinedInput-notchedOutline": { border: 0 },
-              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                {
-                  border: 0,
+        {/* data selector visible for  Income and Expense */}
+        {(activeTab === "Income" || activeTab === "Expense") && (
+          <FormControl sx={{ m: 1, maxWidth: 300 }} size="small">
+            <Select
+              sx={{
+                boxShadow: "none",
+                ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  {
+                    border: 0,
+                  },
+                "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                  {
+                    border: 0,
+                  },
+                ".MuiSvgIcon-root": {
+                  color: "#2C2669",
                 },
-              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                {
-                  border: 0,
+                ".MuiSelect-select": {
+                  padding: "12px 20px",
+                  display: "flex",
+                  alignItems: "center",
+                  fontFamily: "Public Sans",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  fontStyle: "normal",
+                  lineHeight: "16px",
+                  borderRadius: "6px",
+                  background: "var(--Color-7, #FFF)",
+                  width: "300px",
+                  color: "#6053B9",
                 },
-              ".MuiSvgIcon-root": {
-                color: "#2C2669",
-              },
-              ".MuiSelect-select": {
-                padding: "12px 20px",
-                display: "flex",
-                alignItems: "center",
-                fontFamily: "Public Sans",
-                fontSize: "14px",
-                fontWeight: 500,
-                fontStyle: "normal",
-                lineHeight: "16px",
-                borderRadius: "6px",
-                background: "var(--Color-7, #FFF)",
-                width: "300px",
-                color: "#6053B9",
-              },
-            }}
-            labelId="demo-select-small-label"
-            id="demo-select-small"
-            value={date}
-            onChange={handleDate}
-          >
-            <MenuItemStyled value={"Last 7 days"}>Last 7 days</MenuItemStyled>
-            <MenuItemStyled value={"Last 28 days"}>Last 28 days</MenuItemStyled>
-            <MenuItemStyled value={"Last 90 days"}>Last 90 days</MenuItemStyled>
-            <MenuItemStyled sx={{borderBottom: "solid 1px #A098D5"}} value={"Last 360 days"}>Last 360 days</MenuItemStyled>
-            <MenuItemStyled value={"2024"}>2024</MenuItemStyled>
-            <MenuItemStyled sx={{borderBottom: "solid 1px #A098D5"}} value={"2023"}>2023</MenuItemStyled>
-            <MenuItemStyled value={"Jun"}>Jun</MenuItemStyled>
-            <MenuItemStyled sx={{borderBottom: "solid 1px #A098D5"}} value={"May"}>May</MenuItemStyled>
-            <MenuItemStyled value={"Custom"}>Custom</MenuItemStyled>
-          </Select>
-        </FormControl>
+              }}
+              labelId="demo-select-small-label"
+              id="demo-select-small"
+              value={date}
+              onChange={handleDate}
+            >
+              <MenuItemStyled value={"Last 7 days"}>Last 7 days</MenuItemStyled>
+              <MenuItemStyled value={"Last 28 days"}>
+                Last 28 days
+              </MenuItemStyled>
+              <MenuItemStyled value={"Last 90 days"}>
+                Last 90 days
+              </MenuItemStyled>
+              <MenuItemStyled
+                sx={{ borderBottom: "solid 1px #A098D5" }}
+                value={"Last 360 days"}
+              >
+                Last 360 days
+              </MenuItemStyled>
+              <MenuItemStyled value={"2024"}>2024</MenuItemStyled>
+              <MenuItemStyled
+                sx={{ borderBottom: "solid 1px #A098D5" }}
+                value={"2023"}
+              >
+                2023
+              </MenuItemStyled>
+              <MenuItemStyled value={"Jun"}>Jun</MenuItemStyled>
+              <MenuItemStyled
+                sx={{ borderBottom: "solid 1px #A098D5" }}
+                value={"May"}
+              >
+                May
+              </MenuItemStyled>
+              <MenuItemStyled value={"Custom"}>Custom</MenuItemStyled>
+            </Select>
+          </FormControl>
+        )}
+
+        {/* visible for  Category and Expense */}
+        {activeTab === "Category" && <BudgetModal />}
       </BudgetTabConrolWrap>
-      <FilterWrapper>
-        <FormControl sx={{ m: 1, maxWidth: 300, padding: "" }} size="small">
-          <Select
-            sx={{
-              boxShadow: "none",
-              ".MuiOutlinedInput-notchedOutline": { border: 0 },
-              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                {
-                  border: 0,
-                },
-              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                {
-                  border: 0,
-                },
-              color: "#2C2669",
-              ".MuiSvgIcon-root": {
+
+       {/* visible for  Income and Expense */}
+      {(activeTab === "Income" || activeTab === "Expense") && (
+        <FilterWrapper>
+          <FormControl sx={{ m: 1, maxWidth: 300 }} size="small">
+            <Select
+              sx={{
+                boxShadow: "none",
+                ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                  {
+                    border: 0,
+                  },
+                "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                  {
+                    border: 0,
+                  },
                 color: "#2C2669",
-              },
-              ".MuiSelect-select": {
-                padding: "0px",
-                display: "flex",
-                alignItems: "center",
-                fontFamily: "Public Sans",
-                fontSize: "34px",
-                fontWeight: 700,
-                fontStyle: "normal",
-                lineHeight: "42px",
-                width: "300px"
-              },
-            }}
-            labelId="demo-select-small-label"
-            id="demo-select-small"
-            value={value}
-            onChange={handleChange}
-          >
-            <MenuItemStyled value={"Total Income"}>Total income</MenuItemStyled>
-            <MenuItemStyled value={"New elementary"}>New elementary</MenuItemStyled>
-            <MenuItemStyled value={"Test group"}>Test group</MenuItemStyled>
-          </Select>
-        </FormControl>
-        <TotalValue>70.000 UZS</TotalValue>
-      </FilterWrapper>
+                ".MuiSvgIcon-root": {
+                  color: "#2C2669",
+                },
+                ".MuiSelect-select": {
+                  padding: "0px",
+                  display: "flex",
+                  alignItems: "center",
+                  fontFamily: "Public Sans",
+                  fontSize: "34px",
+                  fontWeight: 700,
+                  fontStyle: "normal",
+                  lineHeight: "42px",
+                  width: "300px",
+                },
+              }}
+              labelId="demo-select-small-label"
+              id="demo-select-small"
+              value={value}
+              onChange={handleChange}
+            >
+              <MenuItemStyled value={"Total Income"}>
+                Total income
+              </MenuItemStyled>
+              <MenuItemStyled value={"New elementary"}>
+                New elementary
+              </MenuItemStyled>
+              <MenuItemStyled value={"Test group"}>Test group</MenuItemStyled>
+            </Select>
+          </FormControl>
+          <TotalValue>70.000 UZS</TotalValue>
+          <ExpenseModalWrapper>
+            {/* visible for Expense */}
+            {activeTab === "Expense" && <BudgetModal />}
+          </ExpenseModalWrapper>
+        </FilterWrapper>
+      )}
       <div className="tab-content">{renderContent()}</div>
     </BudgetComponent>
   );

@@ -8,7 +8,9 @@ export const mockBudget = {
                 amount: '20.000 UZS',
                 groups: 'New elementary',
                 payee: 'Ceo Demo',
-                paymentMethod: 'CASH'
+                paymentMethod: 'CASH',
+                category:"Office ishlari uchun",
+                description: "Description ikki qator bolishi xam m-n"
             }
         },
         {
@@ -19,7 +21,9 @@ export const mockBudget = {
                 amount: '20.000 UZS',
                 groups: 'New elementary',
                 payee: 'Ceo Demo',
-                paymentMethod: 'CASH'
+                paymentMethod: 'CASH',
+                category:"Office ishlari uchun",
+                description: "Description ikki qator bolishi xam m-n"
             }
         },
         {
@@ -30,7 +34,9 @@ export const mockBudget = {
                 amount: '20.000 UZS',
                 groups: 'New elementary',
                 payee: 'Ceo Demo',
-                paymentMethod: 'CREDIT CARD'
+                paymentMethod: 'CREDIT CARD',
+                category:"Deputatlar chontagiga",
+                description: "Description ikki qator bolishi xam m-n"
             }
         },
         {
@@ -41,7 +47,9 @@ export const mockBudget = {
                 amount: '20.000 UZS',
                 groups: 'New elementary',
                 payee: 'Ceo Demo',
-                paymentMethod: 'CASH'
+                paymentMethod: 'CASH',
+                category:"Office ishlari uchun",
+                description: "Description ikki qator bolishi xam m-n"
             }
         },
         {
@@ -52,7 +60,9 @@ export const mockBudget = {
                 amount: '20.000 UZS',
                 groups: 'New elementary',
                 payee: 'Ceo Demo',
-                paymentMethod: 'CREDIT CARD'
+                paymentMethod: 'CREDIT CARD',
+                category:"Office ishlari uchun",
+                description: "Description ikki qator bolishi xam m-n"
             }
         },
         {
@@ -63,7 +73,9 @@ export const mockBudget = {
                 amount: '20.000 UZS',
                 groups: 'New elementary',
                 payee: 'Ceo Demo',
-                paymentMethod: 'CASH'
+                paymentMethod: 'CASH',
+                category:"Office ishlari uchun",
+                description: "Description ikki qator bolishi xam m-n"
             }
         }
     ]
