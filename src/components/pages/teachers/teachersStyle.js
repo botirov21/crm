@@ -55,7 +55,6 @@ export const AddTeacherButton = styled.button`
 export const ModalComponent = styled.div`
   max-width: 1000px;
   height: 80vh;
-  max-height: 800px;
   background: #fff;
   h1 {
     color: var(--600, #2c2669);
@@ -68,8 +67,8 @@ export const ModalComponent = styled.div`
   div {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin-top: 27px;
+    gap: 10px;
+    /* margin-top: 27px; */
   }
 `;
 export const ModalLabel = styled.label`
@@ -80,6 +79,8 @@ export const ModalLabel = styled.label`
   font-weight: 700;
   line-height: 16px;
   align-self: stretch;
+  padding-top: 10px;
+  
 `;
 export const ModalInput = styled.input`
   display: flex;
@@ -112,6 +113,7 @@ export const AddTeacherBtn = styled.button`
   gap: 10px;
   flex-shrink: 0;
   border-radius: 6px;
+  cursor: pointer;
   background: var(
     --600,
     linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
@@ -123,6 +125,7 @@ export const AddTeacherBtn = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
+  
 `;
 // teacher's profile page style
 export const TeachersProfilePage = styled.div`
@@ -266,7 +269,7 @@ export const TeacherTabConrol = styled.div`
   }
 
   .tab-content {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     
   }

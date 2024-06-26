@@ -66,7 +66,9 @@ export default function TeachersModal() {
               <ModalLabel>Password</ModalLabel>
               <ModalInput placeholder="Enter a password" type="text" />
             </div>
-            <div>
+            <div style={{
+              paddingTop:"20px"
+            }}>
                 <AddTeacherBtn>
                     Add teacher
                 </AddTeacherBtn>
