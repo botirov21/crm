@@ -22,7 +22,6 @@
     "react-pro-sidebar": "^1.1.0",
     "react-router-dom": "^6.23.1",
     "react-scripts": "^5.0.1",
-    "react-swipeable-views": "^0.14.0",
     "styled-components": "^6.1.11",
     "web-vitals": "^2.1.4"
   },
@@ -49,5 +48,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.11.0"
+  },
+  "babel": {
+    "presets": ["react-app"],
+    "plugins": ["@emotion/babel-plugin"]
   }
 }
