@@ -74,7 +74,7 @@ const Leads = () => {
           label="Search student..."
           variant="outlined"
           className="textinput"
-          sx={{ background: "#fff", color:"#BFBAE3" }}
+          sx={{ background: "#fff", color:"#BFBAE3", width:"100%",maxWidth:"200px"}}
         />
         <Select
           sx={{
@@ -100,7 +100,8 @@ const Leads = () => {
               lineHeight: "16px",
               borderRadius: "6px",
               background: "var(--Color-7, #FFF)",
-              width: "200px",
+              width:"100%",
+              maxWidth: "200px",
               color:"#BFBAE3"
             },
           }}
@@ -138,7 +139,8 @@ const Leads = () => {
               lineHeight: "16px",
               borderRadius: "6px",
               background: "var(--Color-7, #FFF)",
-              width: "200px",
+               width:"100%",
+              maxWidth: "200px",
               color:"#BFBAE3"
             },
           }}

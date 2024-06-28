@@ -1,5 +1,5 @@
 import React from 'react';
-import { mockTeacher } from '../../mock/teachers'; // Adjust the import path if necessary
+import { mockTeacher } from '../../mock/teachers'; 
 import { Link } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
 

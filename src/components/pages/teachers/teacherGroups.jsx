@@ -10,7 +10,6 @@ import {
   StartDate,
   StudentNumber,
 } from "./teachersStyle";
-import { mockGroup } from "../../mock/groups";
 const TeacherGroups = () => {
   return (
     <GroupsComponent>

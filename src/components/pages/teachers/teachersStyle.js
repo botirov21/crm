@@ -34,7 +34,7 @@ export const AddTeacherButton = styled.button`
   display: inline-flex;
   flex-direction: row;
   height: 55px;
-  max-width: 200px;
+    max-width: 350px;
   align-items: center;
   justify-content: center;
   gap: 10px;

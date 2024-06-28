@@ -16,6 +16,7 @@ const Teachers = () => {
           label="Search teacher"
           variant="outlined"
           className="textinput"
+          sx={{width:"100%"}}
         />
         <TeachersModal />
       </TeachersTop>
