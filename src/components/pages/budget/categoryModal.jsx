@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import AddIcon from '@mui/icons-material/Add';
 import Modal from "@mui/material/Modal";
-import {AddBudgetBtn, AddBudgetButton, ModalComponent, ModalInput, ModalLabel } from "./budgetStyle";
+import {AddButton, CreateBtn, InputWrapper, ModalComponent, ModalInput, ModalLabel } from "./budgetStyle";
 const style = {
   position: "absolute",
   top: "50%",
@@ -22,7 +22,7 @@ export default function BudgetModal() {
 
   return (
     <div>
-      <AddBudgetButton onClick={handleOpen}>  <AddIcon/>Add new category</AddBudgetButton>
+      <AddButton onClick={handleOpen}>  <AddIcon/>Add new category</AddButton>
       <Modal
         open={open}
         onClose={handleClose}
@@ -32,15 +32,15 @@ export default function BudgetModal() {
         <Box sx={style}>
           <ModalComponent>
             <h1>Create new category</h1>
-            <div>
+            <InputWrapper>
               <ModalLabel>Category name</ModalLabel>
               <ModalInput placeholder="Enter name" type="text" />
-            </div>
-            <div>
-                <AddBudgetBtn>
+            </InputWrapper>
+            <InputWrapper>
+                <CreateBtn>
                 Create category
-                </AddBudgetBtn>
-            </div>
+                </CreateBtn>
+            </InputWrapper>
           </ModalComponent>
         </Box>
       </Modal>

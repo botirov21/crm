@@ -1,30 +1,82 @@
-import React from 'react';
-import { mockBudget } from '../../mock/budget'; // Ensure the path is correct
-import { DataGrid } from '@mui/x-data-grid';
+import React from "react";
+import { DataGrid } from "@mui/x-data-grid";
+import { mockBudget } from "../../mock/budget";
+import { Avatar, Box } from "@mui/material";
+import { CustomCellBold, CustomCellThin } from "./budgetStyle";
 
+// Define columns with Avatar in the 'fullName' field
 const columns = [
-  { field: 'id', headerName: 'ID', width: 100 },
-  { field: 'Date', headerName: 'Dates', width: 150 },
-  { field: 'Amount', headerName: 'Amount', width: 150 },
-  { field: 'Category', headerName: 'Category', width: 150},
-  { field: 'Description', headerName: 'Description', width: 200 },
-  { field: 'Payee', headerName: 'Payee', width: 150 },
-  { field: 'Payment method', headerName: 'Payment method', width: 150 },
+  { field: "id", headerName: "ID", width: 50 },
+  {  
+    field: "fullName",
+    headerName: <CustomCellThin>Full name</CustomCellThin>,
+    width: 250,
+    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
+    renderCell: (params) => (
+      <Box display="flex" alignItems="center">
+        <Avatar
+          alt={params.row.fullName}
+          src={params.row.profileImage}
+          sx={{ width: 30, height: 30, marginRight: 1 }}
+        />
+        <CustomCellBold>{params.row.fullName || "No data"}</CustomCellBold>
+      </Box>
+    ),
+  },
+  {
+    field: "Date",
+    headerName: <CustomCellThin>Dates</CustomCellThin>,
+    width: 150,
+    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+  },
+  {
+    field: "Amount",
+    headerName: <CustomCellThin>Amount</CustomCellThin>,
+    width: 150,
+    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
+  },
+  {
+    field: "Category",
+    headerName: <CustomCellThin>Category</CustomCellThin>,
+    width: 150,
+    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+  },
+  {
+    field: "Description",
+    headerName: <CustomCellThin>Description</CustomCellThin>,
+    width: 200,
+    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+  },
+  {
+    field: "Payer",
+    headerName: <CustomCellThin>Payer</CustomCellThin>,
+    width: 150,
+    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+  },
+  {
+    field: "Payment method",
+    headerName: <CustomCellThin>Payment method</CustomCellThin>,
+    width: 150,
+    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
+  },
 ];
 
-const rows = mockBudget.budgetInfo.map(budget => ({
+// Transform mock data to rows
+const rows = mockBudget.budgetInfo.map((budget) => ({
   id: budget.id,
-  Date: budget.budget.date || 'No data',
-  Amount: budget.budget.amount || 'No data',
+  fullName: budget.budget.fullName || "No data",
+  Date: budget.budget.date || "No data",
+  Amount: budget.budget.amount || "No data",
   Category: budget.budget.category || 'No data',
-  Description: budget.budget.description || 'No data',
-  Payee: budget.budget.payee || 'No data',
-  'Payment method': budget.budget['paymentMethod'] || 'No data', 
+  Description: budget.budget.description ||'No data',
+  Payer: budget.budget.payer || "No data",
+  "Payment method": budget.budget["paymentMethod"] || "No data",
+  profileImage: budget.budget.profileImage || "",
 }));
 
-export default function ExpenseDataTable() {
+export default function DataTable() {
   return (
-    <div style={{ height: 400, width: '100%', maxWidth: '70%' }}>
+    <div style={{ height: 400, width: "100%", maxWidth: "70%" }}>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -34,7 +86,26 @@ export default function ExpenseDataTable() {
           },
         }}
         pageSizeOptions={[5, 10]}
-        checkboxSelection
+        disableSelectionOnClick
+        disableColumnMenu
+        hideFooterSelectedRowCount
+        sx={{
+          backgroundColor: "var(--Color-7, #FFF)",
+          borderRadius: "16px",
+          border: "none",
+          "& .MuiDataGrid-row": {
+            cursor: "default",
+          },
+          "& .MuiDataGrid-row.Mui-selected": {
+            backgroundColor: "inherit !important",
+          },
+          "& .MuiDataGrid-cell:focus, & .MuiDataGrid-cell:focus-within": {
+            outline: "none",
+          },
+          "& .MuiDataGrid-footerContainer": {
+            borderRadius: "0px 0px 16px 16px",
+          },
+        }}
       />
     </div>
   );

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import {MenuItem } from "@mui/material";
 
+//style for budget
 export const BudgetComponent = styled.div`
   height: 100vh;
   background: #efeef8;
@@ -68,6 +69,28 @@ export const TotalValue = styled.p`
   margin: 0px;
 `;
 
+//style for text of raws in budget table
+export const CustomCellThin = styled.p`
+color: var(--500, #6053B9);
+
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 16px;
+
+`;
+
+export const CustomCellBold = styled.p`
+color: var(--600, #2C2669);
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 16px;
+`;
+
+
 //overide Style for mui select(menu item) component
 export const MenuItemStyled = styled(MenuItem)`
   font-family: "Public Sans";
@@ -79,8 +102,7 @@ export const MenuItemStyled = styled(MenuItem)`
 `;
 
 //modal Style
-
-export const AddBudgetButton = styled.button`
+export const AddButton = styled.button`
   border-radius: 6px;
   background: var(
     --600,
@@ -106,7 +128,7 @@ export const AddBudgetButton = styled.button`
     transition: all ease-in-out 0, 5s;
   }
 `;
-//modal style
+//modal style for category
 export const ModalComponent = styled.div`
   max-width: 1000px;
   height: max-content;
@@ -120,13 +142,16 @@ export const ModalComponent = styled.div`
     font-weight: 700;
     line-height: 32px;
   }
-  div {
+
+`;
+
+export const InputWrapper=styled.div`
     display: flex;
     flex-direction: column;
     gap: 4px;
-    margin-top: 27px;
-  }
-`;
+    margin-top: 17px;
+`
+//modal style for category and expense
 export const ModalLabel = styled.label`
   color: var(--500, #6053b9);
   font-family: "Public Sans";
@@ -136,12 +161,13 @@ export const ModalLabel = styled.label`
   line-height: 16px;
   align-self: stretch;
   padding: 5px 0px;
+  margin:0px;
 `;
+//modal style for category and expense
 export const ModalInput = styled.input`
   display: flex;
   height: 40px;
   max-width: 100%;
-  align-items: center;
   align-self: stretch;
   border-radius: 8px;
   border: 1px solid var(--200, #cfcbea);
@@ -157,7 +183,26 @@ export const ModalInput = styled.input`
     outline: groove;
   }
 `;
-export const AddBudgetBtn = styled.button`
+
+export const ModalTextarea  = styled.textarea`
+  display: flex;
+  max-width: 100%;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid var(--200, #cfcbea);
+  background: var(--100, #efeef8);
+  color: var(--600, #2C2669);
+  font-family: "Public Sans";
+  font-size: clamp(20px, 2vw+1rem, 24px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  padding-left: 10px;
+  &:focus {
+    outline: groove;
+  }
+`;
+export const CreateBtn = styled.button`
   display: flex;
   max-width: 100%;
   height: 44px;
@@ -181,8 +226,48 @@ export const AddBudgetBtn = styled.button`
   line-height: 24px;
 `;
 
+//style for category table actions(edit & delete)
+export const DeleteActionWrap = styled.div`
+display: flex;
+border-radius: 5px;
+border: 2px solid #FF2E00;
+padding: 5px;
+`
+export const EditActionWrap = styled.div`
+display: flex;
+border-radius: 5px;
+border: 2px solid var(--600, #2C2669);
+padding: 5px;
+`
+//modal style for  expense
 export const ExpenseModalWrapper = styled.div`
 display: flex;
 width: 50%;
 justify-content: end;
 `
+export const RadioContent = styled.div`
+display: flex;
+flex-direction: column;
+gap:5px;
+`;
+
+export const RadioWrapper = styled.div`
+display: flex;
+align-items: center;
+gap: 8px;
+`;
+
+export const RadioInput = styled.input`
+
+`;
+
+export const RadioLabel = styled.label`
+color: var(--400, #A098D5);
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 16px; 
+`
+
+

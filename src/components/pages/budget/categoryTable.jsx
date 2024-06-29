@@ -1,36 +1,47 @@
-import React, { useState, useCallback } from 'react';
-import { mockBudget } from '../../mock/budget'; // Ensure the path is correct
-import { DataGrid } from '@mui/x-data-grid';
-import { Button, IconButton } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@mui/material';
+import React, { useState, useCallback } from "react";
+import { mockBudget } from "../../mock/budget"; // Ensure the path is correct
+import { DataGrid } from "@mui/x-data-grid";
+import { Button, IconButton } from "@mui/material";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  TextField,
+} from "@mui/material";
+import { DeleteActionWrap, EditActionWrap } from "./budgetStyle";
 
-const initialData = mockBudget.budgetInfo.map(budget => ({
+const initialData = mockBudget.budgetInfo.map((budget) => ({
   id: budget.id,
-  category: budget.budget.category || 'No data',
+  category: budget.budget.category || "No data",
 }));
 
 export default function CategoryDataTable() {
   const [rows, setRows] = useState(initialData);
   const [open, setOpen] = useState(false);
   const [currentRow, setCurrentRow] = useState(null);
-  const [editCategory, setEditCategory] = useState('');
+  const [editCategory, setEditCategory] = useState("");
 
-  const handleEditClick = useCallback((id) => {
-    const rowToEdit = rows.find(row => row.id === id);
-    setCurrentRow(rowToEdit);
-    setEditCategory(rowToEdit.category);
-    setOpen(true);
-  }, [rows]);
+  const handleEditClick = useCallback(
+    (id) => {
+      const rowToEdit = rows.find((row) => row.id === id);
+      setCurrentRow(rowToEdit);
+      setEditCategory(rowToEdit.category);
+      setOpen(true);
+    },
+    [rows]
+  );
 
   const handleDeleteClick = useCallback((id) => {
-    setRows((prevRows) => prevRows.filter(row => row.id !== id));
+    setRows((prevRows) => prevRows.filter((row) => row.id !== id));
   }, []);
 
   const handleSave = useCallback(() => {
-    setRows((prevRows) => 
-      prevRows.map(row => 
+    setRows((prevRows) =>
+      prevRows.map((row) =>
         row.id === currentRow.id ? { ...row, category: editCategory } : row
       )
     );
@@ -38,11 +49,11 @@ export default function CategoryDataTable() {
   }, [currentRow, editCategory]);
 
   const columns = [
-    { field: 'id', headerName: 'ID', width: 100 },
-    { field: 'category', headerName: 'Category', flex: 1 },
+    { field: "id", headerName: "ID", width: 100 },
+    { field: "category", headerName: "Category", flex: 1 },
     {
-      field: 'actions',
-      headerName: 'Actions',
+      field: "actions",
+      headerName: "Actions",
       width: 150,
       renderCell: (params) => (
         <strong>
@@ -50,13 +61,17 @@ export default function CategoryDataTable() {
             color="primary"
             onClick={() => handleEditClick(params.id)}
           >
-            <EditIcon />
+            <EditActionWrap>
+              <EditOutlinedIcon sx={{ color: "#2C2669" }} />
+            </EditActionWrap>
           </IconButton>
           <IconButton
             color="secondary"
             onClick={() => handleDeleteClick(params.id)}
           >
-            <DeleteIcon />
+            <DeleteActionWrap>
+              <DeleteOutlineOutlinedIcon sx={{ color: "#FF2E00" }} />
+            </DeleteActionWrap>
           </IconButton>
         </strong>
       ),
@@ -64,7 +79,7 @@ export default function CategoryDataTable() {
   ];
 
   return (
-    <div style={{ height: 400, width: '100%', maxWidth: '70%' }}>
+    <div style={{ height: 400, width: "100%", maxWidth: "70%" }}>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -74,8 +89,28 @@ export default function CategoryDataTable() {
           },
         }}
         pageSizeOptions={[5, 10]}
-        checkboxSelection
+        disableSelectionOnClick
+        disableColumnMenu
+        hideFooterSelectedRowCount
+        sx={{
+          backgroundColor: "var(--Color-7, #FFF)",
+          borderRadius: "16px",
+          border: "none",
+          "& .MuiDataGrid-row": {
+            cursor: "default",
+          },
+          "& .MuiDataGrid-row.Mui-selected": {
+            backgroundColor: "inherit !important",
+          },
+          "& .MuiDataGrid-cell:focus, & .MuiDataGrid-cell:focus-within": {
+            outline: "none",
+          },
+          "& .MuiDataGrid-footerContainer": {
+            borderRadius: "0px 0px 16px 16px",
+          },
+        }}
       />
+
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Edit Category</DialogTitle>
         <DialogContent>
