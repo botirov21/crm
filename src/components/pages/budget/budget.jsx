@@ -11,7 +11,7 @@ import {
 import DataTable from "./budgetTable";
 import { FormControl, Select } from "@mui/material";
 import CategoryDataTable from "./categoryTable";
-import BudgetModal from "./categoryModal";
+import CategoryModal from "./categoryModal";
 import ExpenseDataTable from "./expenseTable";
 import ExpenseModal from "./expenseModal";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -154,7 +154,7 @@ const Budget = () => {
         )}
 
         {/* visible for  Category and Expense */}
-        {activeTab === "Category" && <BudgetModal />}
+        {activeTab === "Category" && <CategoryModal />}
       </BudgetTabConrolWrap>
 
        {/* visible for  Income and Expense */}

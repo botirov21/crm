@@ -8,6 +8,7 @@ import Teachers from "./components/pages/teachers/teachers";
 import ProfileTeacher from "./components/pages/teachers/profileTeacher";
 import Budget from "./components/pages/budget/budget";
 import Leads from "./components/pages/leads/leads";
+import Ceo from "./components/pages/settings/ceo";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,6 +22,8 @@ root.render(
         <Route path="/teachers" element={<Teachers/>}/>
         <Route path="/teachers/:id" element={<ProfileTeacher/>}/>
         <Route path="/budget" element={<Budget/>}/>
+        <Route path="/ceo" element={<Ceo/>}/>
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
