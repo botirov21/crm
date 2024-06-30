@@ -8,13 +8,13 @@ import {
   MenuItemStyled,
   ExpenseModalWrapper,
 } from "./budgetStyle";
-import DataTable from "./budgetTable";
 import { FormControl, Select } from "@mui/material";
 import CategoryDataTable from "./categoryTable";
 import CategoryModal from "./categoryModal";
 import ExpenseDataTable from "./expenseTable";
 import ExpenseModal from "./expenseModal";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import IncomeTable from "./incomeTable";
 
 const Budget = () => {
   const [value, setValue] = useState("New elementary");
@@ -32,7 +32,7 @@ const Budget = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "Income":
-        return <DataTable />;
+        return <IncomeTable/>;
       case "Category":
         return <CategoryDataTable />;
       case "Expense":

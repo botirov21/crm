@@ -1,28 +1,9 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { mockBudget } from "../../mock/budget";
-import { Avatar, Box } from "@mui/material";
 import { CustomCellBold, CustomCellThin } from "./budgetStyle";
 
-// Define columns with Avatar in the 'fullName' field
 const columns = [
-  { field: "id", headerName: "ID", width: 50 },
-  {  
-    field: "fullName",
-    headerName: <CustomCellThin>Full name</CustomCellThin>,
-    width: 250,
-    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
-    renderCell: (params) => (
-      <Box display="flex" alignItems="center">
-        <Avatar
-          alt={params.row.fullName}
-          src={params.row.profileImage}
-          sx={{ width: 30, height: 30, marginRight: 1 }}
-        />
-        <CustomCellBold>{params.row.fullName || "No data"}</CustomCellBold>
-      </Box>
-    ),
-  },
   {
     field: "Date",
     headerName: <CustomCellThin>Dates</CustomCellThin>,
@@ -63,12 +44,11 @@ const columns = [
 
 // Transform mock data to rows
 const rows = mockBudget.budgetInfo.map((budget) => ({
-  id: budget.id,
-  fullName: budget.budget.fullName || "No data",
+  id: budget.id, // This remains for the getRowId function
   Date: budget.budget.date || "No data",
   Amount: budget.budget.amount || "No data",
-  Category: budget.budget.category || 'No data',
-  Description: budget.budget.description ||'No data',
+  Category: budget.budget.category || "No data",
+  Description: budget.budget.description || "No data",
   Payer: budget.budget.payer || "No data",
   "Payment method": budget.budget["paymentMethod"] || "No data",
   profileImage: budget.budget.profileImage || "",
@@ -80,6 +60,7 @@ export default function DataTable() {
       <DataGrid
         rows={rows}
         columns={columns}
+        getRowId={(row) => row.id}
         initialState={{
           pagination: {
             paginationModel: { page: 0, pageSize: 5 },
@@ -87,23 +68,25 @@ export default function DataTable() {
         }}
         pageSizeOptions={[5, 10]}
         disableSelectionOnClick
-        disableColumnMenu
         hideFooterSelectedRowCount
         sx={{
           backgroundColor: "var(--Color-7, #FFF)",
           borderRadius: "16px",
           border: "none",
-          "& .MuiDataGrid-row": {
-            cursor: "default",
-          },
-          "& .MuiDataGrid-row.Mui-selected": {
-            backgroundColor: "inherit !important",
-          },
           "& .MuiDataGrid-cell:focus, & .MuiDataGrid-cell:focus-within": {
-            outline: "none",
+            outline: "none !important",
           },
-          "& .MuiDataGrid-footerContainer": {
-            borderRadius: "0px 0px 16px 16px",
+          "& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-columnHeader:focus-within": {
+            outline: "none !important",
+          },
+          "& .MuiDataGrid-columnHeader.Mui-focusVisible": {
+            backgroundColor: "inherit",
+          },
+          "& .MuiDataGrid-columnHeader.Mui-focusVisible .MuiDataGrid-columnHeaderTitle": {
+            color: "inherit !important",
+          },
+          "& .MuiDataGrid-cell.Mui-focusVisible": {
+            backgroundColor: "inherit !important",
           },
         }}
       />

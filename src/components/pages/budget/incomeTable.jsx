@@ -5,7 +5,6 @@ import { Avatar, Box } from "@mui/material";
 import { CustomCellBold, CustomCellThin } from "./budgetStyle";
 
 const columns = [
-  { field: "id", headerName: "ID", width: 50 },
   {  
     field: "fullName",
     headerName: <CustomCellThin>Full name</CustomCellThin>,
@@ -15,7 +14,7 @@ const columns = [
         <Avatar
           alt={params.row.fullName}
           src={params.row.profileImage}
-          sx={{ width: 30, height: 30, marginRight: 1 }}
+          sx={{ width: 30, height: 30, marginRight: 1, background: "var(--400, #A098D5)"}}
         />
         <CustomCellBold>{params.row.fullName || "No data"}</CustomCellBold>
       </Box>
@@ -55,7 +54,7 @@ const columns = [
 
 // Transform mock data to rows
 const rows = mockBudget.budgetInfo.map((budget) => ({
-  id: budget.id,
+  id: budget.id, 
   fullName: budget.budget.fullName || "No data",
   Date: budget.budget.date || "No data",
   Amount: budget.budget.amount || "No data",
@@ -65,12 +64,13 @@ const rows = mockBudget.budgetInfo.map((budget) => ({
   profileImage: budget.budget.profileImage || "",
 }));
 
-export default function DataTable() {
+export default function IncomeTable() {
   return (
     <div style={{ height: 400, width: "100%", maxWidth: "70%" }}>
       <DataGrid
         rows={rows}
         columns={columns}
+        getRowId={(row) => row.id} 
         initialState={{
           pagination: {
             paginationModel: { page: 0, pageSize: 5 },
@@ -78,23 +78,25 @@ export default function DataTable() {
         }}
         pageSizeOptions={[5, 10]}
         disableSelectionOnClick
-        disableColumnMenu
         hideFooterSelectedRowCount
         sx={{
           backgroundColor: "var(--Color-7, #FFF)",
           borderRadius: "16px",
           border: "none",
-          "& .MuiDataGrid-row": {
-            cursor: "default",
-          },
-          "& .MuiDataGrid-row.Mui-selected": {
-            backgroundColor: "inherit !important",
-          },
           "& .MuiDataGrid-cell:focus, & .MuiDataGrid-cell:focus-within": {
-            outline: "none",
+            outline: "none !important", 
           },
-          "& .MuiDataGrid-footerContainer": {
-            borderRadius: "0px 0px 16px 16px",
+          "& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-columnHeader:focus-within": {
+            outline: "none !important", 
+          },
+          "& .MuiDataGrid-columnHeader.Mui-focusVisible": {
+            backgroundColor: "inherit",
+          },
+          "& .MuiDataGrid-columnHeader.Mui-focusVisible .MuiDataGrid-columnHeaderTitle": {
+            color: "inherit !important", 
+          },
+          "& .MuiDataGrid-cell.Mui-focusVisible": {
+            backgroundColor: "inherit !important", 
           },
         }}
       />

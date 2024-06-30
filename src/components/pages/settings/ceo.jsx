@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import StaffTable from "./staffTable";
 import { CeoComponent, CeoTabConrol, CeoTabConrolWrap } from "./ceoStyle";
 import StaffModal from "./staffModal";
+import BranchesDataTable from "./branchesTable";
 
 const Ceo = () => {
   const [activeTab, setActiveTab] = useState("Staff");
@@ -12,7 +13,7 @@ const Ceo = () => {
       case "Staff":
         return <StaffTable/>;
       case "Category":
-        return <StaffTable />;
+        return <BranchesDataTable/>;
       default:
         return null;
     }

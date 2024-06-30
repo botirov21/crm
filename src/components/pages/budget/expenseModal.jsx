@@ -110,12 +110,6 @@ export default function ExpenseModal() {
                   ".MuiSvgIcon-root": {
                     color: "#6053B9",
                   },
-                  // "  &.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary":
-                  //   {
-                  //     margin: 0,
-                  //     boxShadow: "none",
-                  //     border: "none",
-                  //   },
                 }}
                 labelId="demo-select-small-label"
                 id="demo-select-small"
