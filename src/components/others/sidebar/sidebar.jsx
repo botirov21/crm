@@ -121,7 +121,7 @@ function Sidenavmenubar() {
             </li>
           </NavLink>
           <NavLink
-            to="/careers"
+            to="/groups"
             className={({ isActive }) => (isActive ? "active" : "")}
             style={{ textDecoration: "none" }}
           >
