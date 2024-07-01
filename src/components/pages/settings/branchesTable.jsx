@@ -16,14 +16,14 @@ import {
   CustomCellThin,
   DeleteActionWrap,
   EditActionWrap,
-} from "./budgetStyle";
+} from "./ceoStyle";
 
 const initialData = mockBudget.budgetInfo.map((budget) => ({
   id: budget.id,
   category: budget.budget.category || "No data",
 }));
 
-export default function CategoryDataTable() {
+export default function BranchesDataTable() {
   const [rows, setRows] = useState(initialData);
   const [open, setOpen] = useState(false);
   const [currentRow, setCurrentRow] = useState(null);

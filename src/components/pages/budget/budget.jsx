@@ -8,14 +8,16 @@ import {
   MenuItemStyled,
   ExpenseModalWrapper,
 } from "./budgetStyle";
-import DataTable from "./budgetTable";
 import { FormControl, Select } from "@mui/material";
 import CategoryDataTable from "./categoryTable";
-import BudgetModal from "./budgetModal";
+import CategoryModal from "./categoryModal";
 import ExpenseDataTable from "./expenseTable";
+import ExpenseModal from "./expenseModal";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import IncomeTable from "./incomeTable";
 
 const Budget = () => {
-  const [value, setValue] = useState("Total Income");
+  const [value, setValue] = useState("New elementary");
   const [date, setDate] = useState("Last 7 days");
   const [activeTab, setActiveTab] = useState("Income");
 
@@ -30,7 +32,7 @@ const Budget = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "Income":
-        return <DataTable />;
+        return <IncomeTable/>;
       case "Category":
         return <CategoryDataTable />;
       case "Expense":
@@ -80,7 +82,7 @@ const Budget = () => {
             Expense
           </div>
         </BudgetTabConrol>
-        {/* data selector visible for  Income and Expense */}
+        {/* date selector visible for  Income and Expense */}
         {(activeTab === "Income" || activeTab === "Expense") && (
           <FormControl sx={{ m: 1, maxWidth: 300 }} size="small">
             <Select
@@ -117,6 +119,7 @@ const Budget = () => {
               id="demo-select-small"
               value={date}
               onChange={handleDate}
+              IconComponent={KeyboardArrowDownIcon}
             >
               <MenuItemStyled value={"Last 7 days"}>Last 7 days</MenuItemStyled>
               <MenuItemStyled value={"Last 28 days"}>
@@ -151,7 +154,7 @@ const Budget = () => {
         )}
 
         {/* visible for  Category and Expense */}
-        {activeTab === "Category" && <BudgetModal />}
+        {activeTab === "Category" && <CategoryModal />}
       </BudgetTabConrolWrap>
 
        {/* visible for  Income and Expense */}
@@ -190,6 +193,8 @@ const Budget = () => {
               id="demo-select-small"
               value={value}
               onChange={handleChange}
+              IconComponent={KeyboardArrowDownIcon}
+
             >
               <MenuItemStyled value={"Total Income"}>
                 Total income
@@ -203,7 +208,7 @@ const Budget = () => {
           <TotalValue>70.000 UZS</TotalValue>
           <ExpenseModalWrapper>
             {/* visible for Expense */}
-            {activeTab === "Expense" && <BudgetModal />}
+            {activeTab === "Expense" && <ExpenseModal/>}
           </ExpenseModalWrapper>
         </FilterWrapper>
       )}

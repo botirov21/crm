@@ -171,3 +171,8 @@ color: var(--Color-7, #FFF);
     font-weight: bold;
     color: #6053B9;
 }
+
+.bold-text {
+    font-weight: bold;
+  }
+  

@@ -7,7 +7,7 @@ export const mockBudget = {
                 date: '2024.06.07',
                 amount: '20.000 UZS',
                 groups: 'New elementary',
-                payee: 'Ceo Demo',
+                payer: 'Ceo Demo',
                 paymentMethod: 'CASH',
                 category:"Office ishlari uchun",
                 description: "Description ikki qator bolishi xam m-n"
@@ -20,7 +20,7 @@ export const mockBudget = {
                 date: '2024.06.07',
                 amount: '20.000 UZS',
                 groups: 'New elementary',
-                payee: 'Ceo Demo',
+                payer: 'Ceo Demo',
                 paymentMethod: 'CASH',
                 category:"Office ishlari uchun",
                 description: "Description ikki qator bolishi xam m-n"
@@ -33,7 +33,7 @@ export const mockBudget = {
                 date: '2024.06.07',
                 amount: '20.000 UZS',
                 groups: 'New elementary',
-                payee: 'Ceo Demo',
+                payer: 'Ceo Demo',
                 paymentMethod: 'CREDIT CARD',
                 category:"Deputatlar chontagiga",
                 description: "Description ikki qator bolishi xam m-n"
@@ -46,7 +46,7 @@ export const mockBudget = {
                 date: '2024.06.07',
                 amount: '20.000 UZS',
                 groups: 'New elementary',
-                payee: 'Ceo Demo',
+                payer: 'Ceo Demo',
                 paymentMethod: 'CASH',
                 category:"Office ishlari uchun",
                 description: "Description ikki qator bolishi xam m-n"
@@ -59,7 +59,7 @@ export const mockBudget = {
                 date: '2024.06.07',
                 amount: '20.000 UZS',
                 groups: 'New elementary',
-                payee: 'Ceo Demo',
+                payer: 'Ceo Demo',
                 paymentMethod: 'CREDIT CARD',
                 category:"Office ishlari uchun",
                 description: "Description ikki qator bolishi xam m-n"
@@ -72,7 +72,7 @@ export const mockBudget = {
                 date: '2024.06.07',
                 amount: '20.000 UZS',
                 groups: 'New elementary',
-                payee: 'Ceo Demo',
+                payer: 'Ceo Demo',
                 paymentMethod: 'CASH',
                 category:"Office ishlari uchun",
                 description: "Description ikki qator bolishi xam m-n"

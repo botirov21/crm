@@ -1,8 +1,28 @@
-import styled from "@emotion/styled";
-import {MenuItem } from "@mui/material";
+import styled from "styled-components";
 
-//style for budget
-export const BudgetComponent = styled.div`
+//style for text of raws in staff table
+export const CustomCellThin = styled.p`
+color: var(--500, #6053B9);
+
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 16px;
+
+`;
+
+export const CustomCellBold = styled.p`
+color: var(--600, #2C2669);
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 16px;
+`;
+
+//style for ceo table controll
+export const CeoComponent = styled.div`
   height: 100vh;
   background: #efeef8;
   display: flex;
@@ -13,7 +33,7 @@ export const BudgetComponent = styled.div`
   padding-top: 40px;
 `;
 
-export const BudgetTabConrol = styled.div`
+export const CeoTabConrol = styled.div`
   width: 60%;
   max-width: 60%;
   height: 50px;
@@ -42,63 +62,12 @@ export const BudgetTabConrol = styled.div`
   }
 `;
 
-export const BudgetTabConrolWrap = styled.div`
+export const CeoTabConrolWrap = styled.div`
   display: flex;
   justify-content: space-between;
   width: 70%;
   align-items: center;
   padding: 0px;
-`;
-
-export const FilterWrapper = styled.div`
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  width: 69%;
-  justify-content: space-between;
-
-`;
-
-export const TotalValue = styled.p`
-  color: var(--500, #6053b9);
-  font-family: "Public Sans";
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 40px;
-  margin: 0px;
-`;
-
-//style for text of raws in budget table
-export const CustomCellThin = styled.p`
-color: var(--500, #6053B9);
-
-font-family: "Public Sans";
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 16px;
-
-`;
-
-export const CustomCellBold = styled.p`
-color: var(--600, #2C2669);
-font-family: "Public Sans";
-font-size: 14px;
-font-style: normal;
-font-weight: 700;
-line-height: 16px;
-`;
-
-
-//overide Style for mui select(menu item) component
-export const MenuItemStyled = styled(MenuItem)`
-  font-family: "Public Sans";
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  line-height: 16px;
-  color: var(--500, #6053b9);
 `;
 
 //modal Style
