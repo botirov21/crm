@@ -71,7 +71,7 @@ const Leads = () => {
         </LeadsMenu>
         <TextField
           id="outlined-basic"
-          label="Search student..."
+          label="Search lead..."
           variant="outlined"
           className="textinput"
           sx={{ background: "#fff", color:"#BFBAE3", width:"100%",maxWidth:"200px"}}

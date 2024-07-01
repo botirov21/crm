@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const LeadsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   width: 100%;
   height: 100vh;
   background: var(--100, #efeef8);
+  margin-top: 60px;
 `;
 export const LeadsNav = styled.article`
   display: flex;
