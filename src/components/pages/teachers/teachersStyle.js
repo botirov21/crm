@@ -14,14 +14,6 @@ export const TeachersTop = styled.article`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .textinput {
-    max-width: 318px;
-    height: 55px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    border: 1px solid var(--300, #bfbae3);
-    background: var(--Color-7, #fff);
-  }
 `;
 
 export const AddTeacherButton = styled.button`
@@ -247,8 +239,7 @@ export const TeacherTabConrol = styled.div`
   width: 60%;
   height: 50px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+ 
   padding-bottom: 100px;
 
   .tab-list {
@@ -287,7 +278,7 @@ height: 100vh;
 export const GroupsInfo=styled.div`
 border-radius: 20px;
 background: var(--Color-7, #FFF);
-max-width: 522px;
+max-width: 400px;
 width: 40vw;
 height: fit-content;
 padding-bottom: 40px;

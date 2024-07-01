@@ -12,11 +12,9 @@ const Teachers = () => {
     <TeachersComponent>
       <TeachersTop>
         <TextField
-          id="outlined-basic"
           label="Search teacher"
-          variant="outlined"
           className="textinput"
-          sx={{width:"100%"}}
+          sx={{width:"100%", maxWidth:"450px", background:"#fff"}}
         />
         <TeachersModal />
       </TeachersTop>
