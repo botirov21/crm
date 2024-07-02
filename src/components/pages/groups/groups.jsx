@@ -1,123 +1,276 @@
 import React, { useState } from "react";
-import { mockLead } from "../../mock/lead";
+import { GroupsCont, GroupsNav } from "./groupsStyle";
+import { Button, MenuItem, Select } from "@mui/material";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
+import GroupsModal from "./groupsModal";
+import { mockTeacher } from "../../mock/teachers";
+import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
-import IconButton from "@mui/material/IconButton";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import EditIcon from "@mui/icons-material/Edit";
-import SmsIcon from "@mui/icons-material/Sms";
-import DeleteIcon from "@mui/icons-material/Delete";
-import AddIcon from "@mui/icons-material/Add";
-import Avatar from "@mui/material/Avatar";
+import { Avatar, Box } from "@mui/material";
 
-// Column definitions with the new profile image column
-const columns = (handleMenuOpen) => [
-  { field: "id", headerName: "ID", width: 100 },
+const defaultAvatar = "/path/to/default/avatar.jpg"; // Replace with the path to your default avatar image
+
+const getInitials = (fullName) => {
+  if (!fullName) return "";
+  return fullName
+    .split(" ")
+    .map((name) => name.charAt(0))
+    .join("");
+};
+
+const columns = [
   {
-    field: "profileImg",
-    headerName: "Profile Image",
-    width: 100,
-    renderCell: (params) => <Avatar alt="Profile Image" src={params.value} />,
+    field: "fullName",
+    headerName: "Full name",
+    width: 400,
+    renderCell: (params) => {
+      const { fullName, profileImage } = params.row;
+      const initials = getInitials(fullName);
+      return (
+        <Box display="flex" alignItems="center">
+          <Avatar
+            alt={fullName}
+            src={profileImage || defaultAvatar}
+            sx={{
+              width: 40,
+              height: 40,
+              marginRight: 1,
+              background: "var(--400, #A098D5)",
+            }}
+          >
+            {!profileImage && initials}
+          </Avatar>
+          <Link
+            to={`/teachers/${params.row.id}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            {fullName || "No data"}
+          </Link>
+        </Box>
+      );
+    },
   },
-  { field: "fullName", headerName: "Lead name", width: 300 },
   { field: "phoneNumber", headerName: "Phone number", width: 200 },
-  { field: "fromWhere", headerName: "From Where", width: 150 },
-  {
-    field: "section",
-    headerName: "Section",
-    width: 150,
-    renderCell: (params) => (
-      <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
-        <span>{params.value}</span>
-        <IconButton
-          aria-label="more"
-          style={{ marginLeft: "auto" }}
-          onClick={(event) => handleMenuOpen(event, params.id)}
-        >
-          <MoreVertIcon />
-        </IconButton>
-      </div>
-    ),
-  },
+  { field: "groups", headerName: "Groups", width: 170 },
+  { field: "percent", headerName: "Percent", width: 150 },
 ];
 
-// Row data with the profile image URL
-const rows = mockLead.leadInfo.map((lead) => ({
-  id: lead.id,
-  profileImg: lead.lead.profileImg || "path/to/default/image.jpg", // Add path to default image if needed
-  fullName: lead.lead.fullName || "No data",
-  phoneNumber: lead.lead.phoneNumber || "No data",
-  fromWhere: lead.lead.fromWhere || "No data",
-  section: lead.lead.section || "No data",
+const rows = mockTeacher.teacherInfo.map((teacher) => ({
+  id: teacher.id,
+  fullName: teacher.teacher.fullName || "No data",
+  phoneNumber: teacher.teacher.phoneNumber || "No data",
+  groups: teacher.teacher.groups || "No data",
+  percent: teacher.teacher.percent || "No data",
+  profileImage: teacher.teacher.profileImage || "", // Assuming profileImage is part of teacher data
 }));
-
 const Groups = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedRowId, setSelectedRowId] = useState(null);
-  const open = Boolean(anchorEl);
+  const [lead, setLead] = useState("");
 
-  const handleMenuOpen = (event, id) => {
-    setAnchorEl(event.currentTarget);
-    setSelectedRowId(id);
+  const handleLead = (event) => {
+    setLead(event.target.value);
   };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    setSelectedRowId(null);
-  };
-
   return (
-    <div style={{ height: 400, width: "100%", background: "#fff" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns(handleMenuOpen)}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
+    <GroupsCont>
+      <GroupsNav>
+        <div className="group-left">
+          <Select
+            sx={{
+              boxShadow: "none",
+              ".MuiOutlinedInput-notchedOutline": {
+                border: "1px solid #BFBAE3",
+              },
+              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                {
+                  border: 0,
+                },
+              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  border: 0,
+                },
+              ".MuiSvgIcon-root": {
+                color: "#2C2669",
+              },
+              ".MuiSelect-select": {
+                display: "flex",
+                alignItems: "center",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: 500,
+                fontStyle: "normal",
+                lineHeight: "16px",
+                borderRadius: "6px",
+                background: "var(--Color-7, #FFF)",
+                width: "100%",
+                maxWidth: "200px",
+                color: "#BFBAE3",
+              },
+            }}
+            labelId="demo-select-small-label"
+            id="demo-select-small"
+            value={lead}
+            onChange={handleLead}
+            displayEmpty
+          >
+            <MenuItem value="" disabled>
+              Search for lead
+            </MenuItem>
+          </Select>
+          <Select
+            sx={{
+              boxShadow: "none",
+              ".MuiOutlinedInput-notchedOutline": {
+                border: "1px solid #BFBAE3",
+              },
+              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                {
+                  border: 0,
+                },
+              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  border: 0,
+                },
+              ".MuiSvgIcon-root": {
+                color: "#2C2669",
+              },
+              ".MuiSelect-select": {
+                display: "flex",
+                alignItems: "center",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: 500,
+                fontStyle: "normal",
+                lineHeight: "16px",
+                borderRadius: "6px",
+                background: "var(--Color-7, #FFF)",
+                width: "100%",
+                maxWidth: "200px",
+                color: "#BFBAE3",
+              },
+            }}
+            labelId="demo-select-small-label"
+            id="demo-select-small"
+            value={lead}
+            onChange={handleLead}
+            displayEmpty
+          >
+            <MenuItem value="" disabled>
+              Search for lead
+            </MenuItem>
+          </Select>
+          <Select
+            sx={{
+              boxShadow: "none",
+              ".MuiOutlinedInput-notchedOutline": {
+                border: "1px solid #BFBAE3",
+              },
+              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                {
+                  border: 0,
+                },
+              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  border: 0,
+                },
+              ".MuiSvgIcon-root": {
+                color: "#2C2669",
+              },
+              ".MuiSelect-select": {
+                display: "flex",
+                alignItems: "center",
+                fontFamily: "Public Sans",
+                fontSize: "14px",
+                fontWeight: 500,
+                fontStyle: "normal",
+                lineHeight: "16px",
+                borderRadius: "6px",
+                background: "var(--Color-7, #FFF)",
+                width: "100%",
+                maxWidth: "200px",
+                color: "#BFBAE3",
+              },
+            }}
+            labelId="demo-select-small-label"
+            id="demo-select-small"
+            value={lead}
+            onChange={handleLead}
+            displayEmpty
+          >
+            <MenuItem value="" disabled>
+              Search for lead
+            </MenuItem>
+          </Select>
+          <Button
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              fontFamily: "Public Sans",
+              fontSize: "14px",
+              fontWeight: 500,
+              fontStyle: "normal",
+              lineHeight: "16px",
+              borderRadius: "6px",
+              background: "var(--Color-7, #FFF)",
+              width: "200px",
+              height: "55px",
+              border: "1px solid #BFBAE3",
+              color: "#BFBAE3",
+            }}
+            variant="outlined"
+            startIcon={<RestartAltIcon />}
+          >
+            Reset Filter
+          </Button>
+        </div>
+        <div className="grop-right">
+          <GroupsModal />
+        </div>
+      </GroupsNav>
+      <div
+        style={{
+          
+          width: "60%",
+          background: "#fff",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
-        pageSizeOptions={[5, 10]}
-      />
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleMenuClose}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
-        sx={{ display: "flex", justifyContent: "center" }}
       >
-        <MenuItem
-          onClick={handleMenuClose}
-          sx={{ display: "flex", gap: "10px", color: "#6053B9" }}
-        >
-          <EditIcon />
-          Edit
-        </MenuItem>
-        <MenuItem
-          onClick={handleMenuClose}
-          sx={{ display: "flex", gap: "10px", color: "#6053B9" }}
-        >
-          <DeleteIcon />
-          Delete
-        </MenuItem>
-        <MenuItem
-          onClick={handleMenuClose}
-          sx={{ display: "flex", gap: "10px", color: "#6053B9" }}
-        >
-          <SmsIcon /> Sms
-        </MenuItem>
-        <MenuItem
-          onClick={handleMenuClose}
-          sx={{ display: "flex", gap: "10px", color: "#6053B9" }}
-        >
-          <AddIcon />
-          Add to group
-        </MenuItem>
-      </Menu>
-    </div>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: { page: 0, pageSize: 5 },
+            },
+          }}
+          pageSizeOptions={[5, 10]}
+          disableSelectionOnClick
+          hideFooterSelectedRowCount
+          sx={{
+            backgroundColor: "var(--Color-7, #FFF)",
+            borderRadius: "16px",
+            border: "none",
+            "& .MuiDataGrid-cell:focus, & .MuiDataGrid-cell:focus-within": {
+              outline: "none !important",
+            },
+            "& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-columnHeader:focus-within":
+              {
+                outline: "none !important",
+              },
+            "& .MuiDataGrid-columnHeader.Mui-focusVisible": {
+              backgroundColor: "inherit",
+            },
+            "& .MuiDataGrid-columnHeader.Mui-focusVisible .MuiDataGrid-columnHeaderTitle":
+              {
+                color: "inherit !important",
+              },
+            "& .MuiDataGrid-cell.Mui-focusVisible": {
+              backgroundColor: "inherit !important",
+            },
+          }}
+        />
+      </div>
+    </GroupsCont>
   );
 };
 
