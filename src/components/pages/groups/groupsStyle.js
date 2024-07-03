@@ -27,3 +27,12 @@ export const GroupsNav=styled.nav`
 display: flex;
   }
 `
+export const GroupsBody=styled.article`
+display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50vh;
+  margin-left: 230px;
+  margin-top: 60px;
+`

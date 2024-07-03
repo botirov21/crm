@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { GroupsCont, GroupsNav } from "./groupsStyle";
+import { GroupsBody, GroupsCont, GroupsNav } from "./groupsStyle";
 import { Button, MenuItem, Select } from "@mui/material";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import GroupsModal from "./groupsModal";
-import { mockTeacher } from "../../mock/teachers";
+import { mockGroup } from "../../mock/groups";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import { Avatar, Box } from "@mui/material";
@@ -20,16 +20,16 @@ const getInitials = (fullName) => {
 
 const columns = [
   {
-    field: "fullName",
-    headerName: "Full name",
+    field: "name",
+    headerName: "Group name",
     width: 400,
     renderCell: (params) => {
-      const { fullName, profileImage } = params.row;
-      const initials = getInitials(fullName);
+      const { name, profileImage } = params.row;
+      const initials = getInitials(name);
       return (
         <Box display="flex" alignItems="center">
           <Avatar
-            alt={fullName}
+            alt={name}
             src={profileImage || defaultAvatar}
             sx={{
               width: 40,
@@ -41,34 +41,40 @@ const columns = [
             {!profileImage && initials}
           </Avatar>
           <Link
-            to={`/teachers/${params.row.id}`}
+            to={`/groups/${params.row.id}`}
             style={{ textDecoration: "none", color: "inherit" }}
           >
-            {fullName || "No data"}
+            {name || "No data"}
           </Link>
         </Box>
       );
     },
   },
-  { field: "phoneNumber", headerName: "Phone number", width: 200 },
-  { field: "groups", headerName: "Groups", width: 170 },
-  { field: "percent", headerName: "Percent", width: 150 },
+  { field: "course", headerName: "Course", width: 200 },
+  { field: "teacher", headerName: "Teacher", width: 200 },
+  { field: "days", headerName: "Days", width: 170 },
+  { field: "room", headerName: "Rooms", width: 150 },
+  { field: "students", headerName: "Students", width: 150 },
 ];
 
-const rows = mockTeacher.teacherInfo.map((teacher) => ({
-  id: teacher.id,
-  fullName: teacher.teacher.fullName || "No data",
-  phoneNumber: teacher.teacher.phoneNumber || "No data",
-  groups: teacher.teacher.groups || "No data",
-  percent: teacher.teacher.percent || "No data",
-  profileImage: teacher.teacher.profileImage || "", // Assuming profileImage is part of teacher data
+const rows = mockGroup.groupInfo.map((group) => ({
+  id: group.id,
+  name: group.group.name || "No data",
+  course: group.group.course || "No data",
+  teacher: group.group.teacher || "No data",
+  days: `${group.group.time.from} - ${group.group.time.to}` || "No data",
+  room: group.group.room || "No data",
+  students: group.group.students || "No data",
+  profileImage: group.group.profileImage || "", // Assuming profileImage is part of the group data
 }));
+
 const Groups = () => {
   const [lead, setLead] = useState("");
 
   const handleLead = (event) => {
     setLead(event.target.value);
   };
+  
   return (
     <GroupsCont>
       <GroupsNav>
@@ -221,16 +227,16 @@ const Groups = () => {
             Reset Filter
           </Button>
         </div>
-        <div className="grop-right">
+        <div className="group-right">
           <GroupsModal />
         </div>
       </GroupsNav>
-      <div
+      <GroupsBody
         style={{
-          
           width: "60%",
           background: "#fff",
           display: "flex",
+          flexDirection:"column",
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -269,7 +275,7 @@ const Groups = () => {
             },
           }}
         />
-      </div>
+      </GroupsBody>
     </GroupsCont>
   );
 };
