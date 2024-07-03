@@ -4,6 +4,7 @@ import StaffTable from "./staffTable";
 import { CeoComponent, CeoTabConrol, CeoTabConrolWrap } from "./ceoStyle";
 import StaffModal from "./staffModal";
 import BranchesDataTable from "./branchesTable";
+import BranchModal from "./branchModal";
 
 const Ceo = () => {
   const [activeTab, setActiveTab] = useState("Staff");
@@ -12,7 +13,7 @@ const Ceo = () => {
     switch (activeTab) {
       case "Staff":
         return <StaffTable/>;
-      case "Category":
+      case "Branches":
         return <BranchesDataTable/>;
       default:
         return null;
@@ -37,18 +38,19 @@ const Ceo = () => {
           </div>
           <div
             className="tab-list"
-            onClick={() => setActiveTab("Category")}
+            onClick={() => setActiveTab("Branches")}
             style={{
               borderRadius: "0px 6px 6px 0px",
               backgroundColor:
-                activeTab === "Category" ? "#2C2669" : "transparent",
-              color: activeTab === "Category" ? "#fff" : "#2C2669",
+                activeTab === "Branches" ? "#2C2669" : "transparent",
+              color: activeTab === "Branches" ? "#fff" : "#2C2669",
             }}
           >
-            Category
+            Branches
           </div>
         </CeoTabConrol>
-        <StaffModal/>
+        {activeTab === "Staff" && <StaffModal />}
+        {activeTab === "Branches" && <BranchModal />}
       </CeoTabConrolWrap>
       <div className="tab-content">{renderContent()}</div>
     </CeoComponent>

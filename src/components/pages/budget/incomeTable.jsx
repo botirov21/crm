@@ -52,7 +52,6 @@ const columns = [
   },
 ];
 
-// Transform mock data to rows
 const rows = mockBudget.budgetInfo.map((budget) => ({
   id: budget.id, 
   fullName: budget.budget.fullName || "No data",

@@ -3,10 +3,10 @@ import { DataGrid } from "@mui/x-data-grid";
 import { mockStaff } from "../../mock/ceoStaff";
 import { Avatar, Box, IconButton, Menu, MenuItem } from "@mui/material";
 import { CustomCellBold, CustomCellThin } from "./ceoStyle";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import editIcon from '../../../assets/edit-icon.svg'
-import smsIcon from '../../../assets/sms-icon.svg'
-import deleteIcon from '../../../assets/delete-icon.svg'
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import editIcon from "../../../assets/edit-icon.svg";
+import smsIcon from "../../../assets/sms-icon.svg";
+import deleteIcon from "../../../assets/delete-icon.svg";
 
 const StaffTable = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -28,7 +28,11 @@ const StaffTable = () => {
   };
 
   const columns = [
-    { field: "id", headerName: <CustomCellThin>ID</CustomCellThin> },
+    {
+      field: "id",
+      headerName: <CustomCellBold>ID</CustomCellBold>,
+      renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
+    },
     {
       field: "fullName",
       headerName: <CustomCellThin>Full name</CustomCellThin>,
@@ -38,7 +42,12 @@ const StaffTable = () => {
           <Avatar
             alt={params.row.fullName}
             src={params.row.profileImage}
-            sx={{ width: 30, height: 30, marginRight: 1, background: "var(--400, #A098D5)" }}
+            sx={{
+              width: 30,
+              height: 30,
+              marginRight: 1,
+              background: "var(--400, #A098D5)",
+            }}
           />
           <CustomCellBold>{params.row.fullName || "No data"}</CustomCellBold>
         </Box>
@@ -72,9 +81,39 @@ const StaffTable = () => {
             open={Boolean(anchorEl) && selectedRowId === params.row.id}
             onClose={handleMenuClose}
           >
-            <MenuItem sx={{display: 'flex', gap: '10px', color: ' var(--500, #6053B9)'}}  onClick={handleClose}><img src={editIcon} alt="edit" />Edit</MenuItem>
-            <MenuItem sx={{display: 'flex', gap: '10px', color: ' var(--500, #6053B9)'}}  onClick={handleClose}><img src={smsIcon} alt="sms" />SMS</MenuItem>
-            <MenuItem sx={{display: 'flex', gap: '10px', color: ' var(--500, #6053B9)'}}  onClick={handleClose}><img src={deleteIcon} alt="delete" />Delete</MenuItem>
+            <MenuItem
+              sx={{
+                display: "flex",
+                gap: "10px",
+                color: " var(--500, #6053B9)",
+              }}
+              onClick={handleClose}
+            >
+              <img src={editIcon} alt="edit" />
+              Edit
+            </MenuItem>
+            <MenuItem
+              sx={{
+                display: "flex",
+                gap: "10px",
+                color: " var(--500, #6053B9)",
+              }}
+              onClick={handleClose}
+            >
+              <img src={smsIcon} alt="sms" />
+              SMS
+            </MenuItem>
+            <MenuItem
+              sx={{
+                display: "flex",
+                gap: "10px",
+                color: " var(--500, #6053B9)",
+              }}
+              onClick={handleClose}
+            >
+              <img src={deleteIcon} alt="delete" />
+              Delete
+            </MenuItem>
           </Menu>
         </strong>
       ),
@@ -109,15 +148,17 @@ const StaffTable = () => {
           "& .MuiDataGrid-cell:focus, & .MuiDataGrid-cell:focus-within": {
             outline: "none !important",
           },
-          "& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-columnHeader:focus-within": {
-            outline: "none !important",
-          },
+          "& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-columnHeader:focus-within":
+            {
+              outline: "none !important",
+            },
           "& .MuiDataGrid-columnHeader.Mui-focusVisible": {
             backgroundColor: "inherit",
           },
-          "& .MuiDataGrid-columnHeader.Mui-focusVisible .MuiDataGrid-columnHeaderTitle": {
-            color: "inherit !important",
-          },
+          "& .MuiDataGrid-columnHeader.Mui-focusVisible .MuiDataGrid-columnHeaderTitle":
+            {
+              color: "inherit !important",
+            },
           "& .MuiDataGrid-cell.Mui-focusVisible": {
             backgroundColor: "inherit !important",
           },
