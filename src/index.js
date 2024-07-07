@@ -9,8 +9,10 @@ import ProfileTeacher from "./components/pages/teachers/profileTeacher";
 import Budget from "./components/pages/budget/budget";
 import Leads from "./components/pages/leads/leads";
 import Groups from "./components/pages/groups/groups";
-import Ceo from "./components/pages/settings/ceo";
 import Firstpage from "./components/home/firstpage";
+import Ceo from "./components/pages/settings/ceo/ceo";
+import Notifications from "./components/pages/notifications/notifications";
+import NotificationsDetail from "./components/pages/notifications/notificationsDetail";
 
 const HideComp = () => {
   const location = useLocation();
@@ -30,7 +32,10 @@ const HideComp = () => {
         <Route path="/teachers/:id" element={<ProfileTeacher />} />
         <Route path="/groups" element={<Groups />} />
         <Route path="/budget" element={<Budget />} />
-        <Route path="/ceo" element={<Ceo />} />
+        <Route path="/ceo" element={<Ceo/>} />
+        <Route path="/notifications" element={<Notifications/>} />
+        <Route path="/notifications/:id" element={<Notifications />} />
+
       </Routes>
     </React.StrictMode>
   );

@@ -5,7 +5,7 @@ import Modal from "@mui/material/Modal";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import uploadIcon from "../../../assets/uploadImage-icon.svg";
+import uploadIcon from "../../../../assets/uploadImage-icon.svg";
 import {
   AddButton,
   CreateBtn,

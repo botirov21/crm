@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from "react";
-import { mockBranch } from "../../mock/ceoBranch"; 
+import { mockBranch } from "../../../mock/ceoBranch"; 
 import { DataGrid } from "@mui/x-data-grid";
 import { Button, IconButton } from "@mui/material";
-import editIcon from "../../../assets/settingEdit-icon.svg"
-import pauseIcon from "../../../assets/settingPause.svg"
+import editIcon from "../../../../assets/settingEdit-icon.svg"
+import pauseIcon from "../../../../assets/settingPause.svg"
 
 import {
   Dialog,
