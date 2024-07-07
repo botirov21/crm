@@ -65,7 +65,7 @@ const rows = mockGroup.groupInfo.map((group) => ({
   days: `${group.group.time.from} - ${group.group.time.to}` || "No data",
   room: group.group.room || "No data",
   students: group.group.students || "No data",
-  profileImage: group.group.profileImage || "", // Assuming profileImage is part of the group data
+  profileImage: group.group.profileImage || "", 
 }));
 
 const Groups = () => {
@@ -118,7 +118,7 @@ const Groups = () => {
             displayEmpty
           >
             <MenuItem value="" disabled>
-              Search for lead
+              Group Status
             </MenuItem>
           </Select>
           <Select
@@ -160,7 +160,7 @@ const Groups = () => {
             displayEmpty
           >
             <MenuItem value="" disabled>
-              Search for lead
+              Teachers
             </MenuItem>
           </Select>
           <Select
@@ -202,7 +202,7 @@ const Groups = () => {
             displayEmpty
           >
             <MenuItem value="" disabled>
-              Search for lead
+              Courses
             </MenuItem>
           </Select>
           <Button

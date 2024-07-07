@@ -9,9 +9,8 @@ import {
   ModalInput,
   ModalLabel,
 } from "../teachers/teachersStyle";
+import { MenuItem, Select } from "@mui/material";
 import { MenuItemStyled } from "../budget/budgetStyle";
-import { FormControl, Select } from "@mui/material";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 const style = {
   position: "absolute",
   top: "50%",
@@ -28,19 +27,32 @@ export default function GroupsModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [section, setSection] = React.useState("Sections");
-  const [where, setWhere] = React.useState("From where");
-  const handleSection = (event) => {
-    setSection(event.target.value);
+
+  const [course, setCourse] = React.useState("");
+  const [teacher, setTeacher] = React.useState("");
+  const [startTime, setStartTime] = React.useState("");
+  const [days, setDays] = React.useState("");
+  const [room, setRoom] = React.useState("");
+
+  const handleCourse = (event) => {
+    setCourse(event.target.value);
   };
-  const handleWhere = (event) => {
-    setWhere(event.target.value);
+   const handleTeacher = (event) => {
+    setTeacher(event.target.value);
   };
+     const handleTime = (event) => {
+    setStartTime(event.target.value);
+  };
+    const handleDay = (event) => {
+    setDays(event.target.value);
+  };
+     const handleRoom = (event) => {
+    setRoom(event.target.value);
+  };
+
   return (
     <div>
-      <AddTeacherButton
-      style={{width:"300px"}}
-      onClick={handleOpen}>
+      <AddTeacherButton style={{ width: "300px" }} onClick={handleOpen}>
         {" "}
         <AddIcon />
         Add <span> new group</span>
@@ -55,20 +67,72 @@ export default function GroupsModal() {
           <ModalComponent>
             <h1>Add new group</h1>
             <div>
-              <ModalLabel>Lead name</ModalLabel>
+              <ModalLabel>Group name</ModalLabel>
               <ModalInput placeholder="Enter name" type="text" />
             </div>
             <div>
               <ModalLabel>Phone number</ModalLabel>
-              <ModalInput placeholder="Username" type="number" />
+              <ModalInput placeholder="Phone number" type="number" />
+            </div>
+            <div style={{ display: "flex", flexDirection: "row", gap: "40px" }}>
+              <div>
+                <ModalLabel>Upload photo</ModalLabel>
+                <ModalInput type="text" />
+              </div>
+              <div>
+                <ModalLabel>Select course</ModalLabel>
+                <Select
+                  sx={{
+                    boxShadow: "none",
+                    ".MuiOutlinedInput-notchedOutline": {
+                      border: "1px solid #BFBAE3",
+                    },
+                    "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                      {
+                        border: 0,
+                      },
+                    "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      {
+                        border: 0,
+                      },
+                    ".MuiSvgIcon-root": {
+                      color: "#2C2669",
+                    },
+                    ".MuiSelect-select": {
+                      display: "flex",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      fontStyle: "normal",
+                      lineHeight: "16px",
+                      borderRadius: "6px",
+                      background: "var(--Color-7, #EFEEF8)",
+                      width: "100%",
+                      maxWidth: "100%",
+                      color: "#000",
+                      height: "10px",
+                    },
+                  }}
+                  labelId="demo-select-small-label"
+                  id="demo-select-small"
+                  value={course}
+                  onChange={handleCourse}
+                  displayEmpty
+                >
+                  <MenuItem value="" disabled>
+                    Group Status
+                  </MenuItem>
+                </Select>
+              </div>
             </div>
             <div>
-              <ModalLabel>Sections</ModalLabel>
-              <FormControl sx={{ m: 1, Width: 300 }} size="small">
+              <ModalLabel>Select Teacher</ModalLabel>
               <Select
                 sx={{
                   boxShadow: "none",
-                  ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                  ".MuiOutlinedInput-notchedOutline": {
+                    border: "1px solid #BFBAE3",
+                  },
                   "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
                     {
                       border: 0,
@@ -81,7 +145,6 @@ export default function GroupsModal() {
                     color: "#2C2669",
                   },
                   ".MuiSelect-select": {
-                    padding: "12px 20px",
                     display: "flex",
                     fontFamily: "Public Sans",
                     fontSize: "14px",
@@ -90,32 +153,30 @@ export default function GroupsModal() {
                     lineHeight: "16px",
                     borderRadius: "6px",
                     background: "var(--Color-7, #EFEEF8)",
-                    width: "340px",
-                    color: "#6053B9",
+                    width: "100%",
+                    maxWidth: "90%",
+                    color: "#000",
                   },
                 }}
                 labelId="demo-select-small-label"
                 id="demo-select-small"
-                value={section}
-                onChange={handleSection}
-                IconComponent={KeyboardArrowDownIcon}
+                value={teacher}
+                onChange={handleTeacher}
+                // displayEmpty
               >
-                <MenuItemStyled
-                  style={{ background: "#EFEEF8" }}
-                  value={"Section"}
-                >
-                  Section
-                </MenuItemStyled>
+                <MenuItem value=" Select Teacher" disabled>
+                  Select Teacher
+                </MenuItem>
               </Select>
-            </FormControl>
             </div>
             <div>
-              <ModalLabel>From where</ModalLabel>
-                <FormControl sx={{ m: 1, Width: 300 }} size="small">
+              <ModalLabel>Select lesson start time</ModalLabel>
               <Select
                 sx={{
                   boxShadow: "none",
-                  ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                  ".MuiOutlinedInput-notchedOutline": {
+                    border: "1px solid #BFBAE3",
+                  },
                   "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
                     {
                       border: 0,
@@ -128,7 +189,6 @@ export default function GroupsModal() {
                     color: "#2C2669",
                   },
                   ".MuiSelect-select": {
-                    padding: "12px 20px",
                     display: "flex",
                     fontFamily: "Public Sans",
                     fontSize: "14px",
@@ -137,31 +197,157 @@ export default function GroupsModal() {
                     lineHeight: "16px",
                     borderRadius: "6px",
                     background: "var(--Color-7, #EFEEF8)",
-                    width: "340px",
-                    color: "#6053B9",
+                    width: "100%",
+                    maxWidth: "90%",
+                    color: "#000",
                   },
                 }}
                 labelId="demo-select-small-label"
                 id="demo-select-small"
-                value={where}
-                onChange={handleWhere}
-                IconComponent={KeyboardArrowDownIcon}
+                value={startTime}
+                onChange={handleTime}
+                displayEmpty
               >
-                <MenuItemStyled
-                  style={{ background: "#EFEEF8" }}
-                  value={"From Where"}
-                >
-                  From Where
-                </MenuItemStyled>
+                <MenuItem value="" disabled>
+                  Select lesson start time
+                </MenuItem>
+                <MenuItemStyled value={"8:00"}>8:00</MenuItemStyled>
+                <MenuItemStyled value={"9:00"}>9:00</MenuItemStyled>
+                <MenuItemStyled value={"10:00"}>10:00</MenuItemStyled>
+                <MenuItemStyled value={"11:00"}>11:00</MenuItemStyled>
+                <MenuItemStyled value={"12:00"}>12:00</MenuItemStyled>
               </Select>
-            </FormControl>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "60px",
+                justifyContent: "space-evenly",
+                alignItems: "center",
+              }}
+            >
+              <div>
+                <ModalLabel>Select days</ModalLabel>
+                <Select
+                  sx={{
+                    boxShadow: "none",
+                    ".MuiOutlinedInput-notchedOutline": {
+                      border: "1px solid #BFBAE3",
+                    },
+                    "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                      {
+                        border: 0,
+                      },
+                    "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      {
+                        border: 0,
+                      },
+                    ".MuiSvgIcon-root": {
+                      color: "#2C2669",
+                    },
+                    ".MuiSelect-select": {
+                      display: "flex",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      fontStyle: "normal",
+                      lineHeight: "16px",
+                      borderRadius: "6px",
+                      background: "var(--Color-7, #EFEEF8)",
+                      width: "100%",
+                      maxWidth: "100%",
+                      color: "#000",
+                      height: "10px",
+                    },
+                  }}
+                  labelId="demo-select-small-label"
+                  id="demo-select-small"
+                  value={days}
+                  onChange={handleDay}
+                  displayEmpty
+                >
+                  <MenuItem value="" disabled>
+                    Select days
+                  </MenuItem>
+                  <MenuItemStyled value={"Odd days"}>Odd days</MenuItemStyled>
+                <MenuItemStyled value={"Even days"}>Even days</MenuItemStyled>
+                <MenuItemStyled value={"Weekends"}>Weekends</MenuItemStyled>
+                <MenuItemStyled value={"Every day"}>Every day</MenuItemStyled>
+                <MenuItemStyled value={"Orher"}>Orher</MenuItemStyled>
+                
+                </Select>
+              </div>
+              <div>
+                <ModalLabel>Select room</ModalLabel>
+                <Select
+                  sx={{
+                    boxShadow: "none",
+                    ".MuiOutlinedInput-notchedOutline": {
+                      border: "1px solid #BFBAE3",
+                    },
+                    "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                      {
+                        border: 0,
+                      },
+                    "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                      {
+                        border: 0,
+                      },
+                    ".MuiSvgIcon-root": {
+                      color: "#2C2669",
+                    },
+                    ".MuiSelect-select": {
+                      display: "flex",
+                      fontFamily: "Public Sans",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      fontStyle: "normal",
+                      lineHeight: "16px",
+                      borderRadius: "6px",
+                      background: "var(--Color-7, #EFEEF8)",
+                      width: "100%",
+                      maxWidth: "100%",
+                      color: "#000",
+                      height: "10px",
+                    },
+                  }}
+                  labelId="demo-select-small-label"
+                  id="demo-select-small"
+                  value={room}
+                  onChange={handleRoom}
+                  displayEmpty
+                >
+                  <MenuItem value="" disabled>
+                    Select room
+                  </MenuItem>
+                </Select>
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "60px",
+                justifyContent: "start",
+                alignItems: "center",
+              }}
+            >
+              <div>
+                <ModalLabel>Group start date</ModalLabel>
+                <ModalInput type="date" />
+              </div>
+              <div>
+                <ModalLabel>End date of the group</ModalLabel>
+                <ModalInput type="date" />
+              </div>
             </div>
             <div
               style={{
                 paddingTop: "20px",
               }}
             >
-              <AddTeacherBtn>Add lead </AddTeacherBtn>
+              <AddTeacherBtn>Create Group </AddTeacherBtn>
             </div>
           </ModalComponent>
         </Box>

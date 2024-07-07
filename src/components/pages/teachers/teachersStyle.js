@@ -46,7 +46,7 @@ export const AddTeacherButton = styled.button`
 //modal style
 export const ModalComponent = styled.div`
   max-width: 1000px;
-  height: 80vh;
+  height: fit-content;
   background: #fff;
   h1 {
     color: var(--600, #2c2669);
@@ -119,6 +119,7 @@ export const AddTeacherBtn = styled.button`
   line-height: 24px;
   
 `;
+
 // teacher's profile page style
 export const TeachersProfilePage = styled.div`
   display: flex;

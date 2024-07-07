@@ -31,8 +31,8 @@ export const GroupsBody=styled.article`
 display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 70%;
   height: 50vh;
-  margin-left: 230px;
+  margin-left: 390px;
   margin-top: 60px;
 `
