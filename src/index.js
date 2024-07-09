@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
@@ -13,6 +13,7 @@ import Firstpage from "./components/home/firstpage";
 import Ceo from "./components/pages/settings/ceo/ceo";
 import Notifications from "./components/pages/notifications/notifications";
 import NotificationsDetail from "./components/pages/notifications/notificationsDetail";
+import { mockNotification } from './components/mock/notifications';
 
 const HideComp = () => {
   const location = useLocation();
@@ -24,7 +25,6 @@ const HideComp = () => {
     <React.StrictMode>
       {!isFirstPage && <Sidenavmenubar />}
       <Routes>
-        {/* Main routes */}
         <Route path="/" element={<Firstpage />} />
         <Route path="/home" element={<Home />} />
         <Route path="/leads" element={<Leads />} />
@@ -34,8 +34,6 @@ const HideComp = () => {
         <Route path="/budget" element={<Budget />} />
         <Route path="/ceo" element={<Ceo/>} />
         <Route path="/notifications" element={<Notifications/>} />
-        <Route path="/notifications/:id" element={<Notifications />} />
-
       </Routes>
     </React.StrictMode>
   );
