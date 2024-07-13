@@ -189,6 +189,14 @@ export const InputWrapper=styled.div`
     flex-direction: column;
     gap: 4px;
     margin-top: 17px;
+    .ql-container {
+    border: none;
+    }
+    .ql-toolbar {
+    border: none;
+    background: var(--200, #CFCBEA);
+  }
+
 `
 export const ModalLabel = styled.label`
   color: var(--500, #6053b9);

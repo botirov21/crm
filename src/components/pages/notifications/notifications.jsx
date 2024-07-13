@@ -17,7 +17,7 @@ import {
   ViewWrapper,
 } from "./notificationsStyle"; 
 import { mockNotification } from "../../mock/notifications";
-import viewIcon from "../../../assets/notification-icons/notificationView-icon.svg";
+import viewIcon from "../../../assets/./notifications-icons/notificationView-icon.svg";
 import NotificationModal from "./notificationModal";
 
 const Notifications = () => {

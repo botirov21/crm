@@ -11,7 +11,6 @@ import {
   ModalComponent,
   ModalInput,
   ModalLabel,
-  ModalTextarea,
 } from "./notificationsStyle";
 import { useState } from "react";
 const style = {
@@ -54,8 +53,7 @@ export default function NotificationModal() {
             </InputWrapper>
             <InputWrapper>
               <ModalLabel>Content</ModalLabel>
-
-              <ReactQuill placeholder="Enter text" className="modalTextarea" theme="snow" value={value} onChange={setValue} />
+              <ReactQuill  placeholder="Enter text" className="modalTextarea" theme="snow" value={value} onChange={setValue} />
             </InputWrapper>
             <InputWrapper>
               <CreateBtn>Create blog </CreateBtn>
