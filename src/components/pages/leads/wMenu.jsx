@@ -9,7 +9,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import SmsIcon from "@mui/icons-material/Sms";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
-import { Avatar, Box, FormControl, Select} from "@mui/material";
+import { Avatar, Box, FormControl, Select } from "@mui/material";
 import { Link } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -49,7 +49,7 @@ const columns = (handleMenuOpen) => [
   {
     field: "fullName",
     headerName: "Lead name",
-    width: 400,
+    width: 500,
     renderCell: (params) => {
       const { fullName, profileImg } = params.row;
       const initials = getInitials(fullName);
@@ -77,12 +77,12 @@ const columns = (handleMenuOpen) => [
       );
     },
   },
-  { field: "phoneNumber", headerName: "Phone number", width: 200 },
-  { field: "fromWhere", headerName: "From Where", width: 150 },
+  { field: "phoneNumber", headerName: "Phone number", width: 300 },
+  { field: "fromWhere", headerName: "From Where", width: 200 },
   {
     field: "section",
     headerName: "Section",
-    width: 150,
+    width: 200,
     renderCell: (params) => (
       <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
         <span>{params.value}</span>
@@ -168,7 +168,7 @@ const WidthMenu = () => {
   const [smsText, setSmsText] = useState("");
 
   return (
-    <div style={{ height: 400, width: "100%", background: "#fff" }}>
+    <div style={{ height: "50vh", width: "80vw", background: "#fff" }}>
       <DataGrid
         rows={rows}
         columns={columns(handleMenuOpen)}
@@ -282,9 +282,7 @@ const WidthMenu = () => {
             <h1>SMS templates</h1>
             <div
               onClick={() =>
-                handleTemplateClick(
-                  "Bugun farzandingiz darsga kelmadi."
-                )
+                handleTemplateClick("Bugun farzandingiz darsga kelmadi.")
               }
               style={{
                 padding: "10px",
@@ -297,7 +295,11 @@ const WidthMenu = () => {
               Bugun farzandingiz darsga kelmadi
             </div>
             <div
-              onClick={() => handleTemplateClick("Iltimos kurs uchun to’lovni vaqtida to’lang!")}
+              onClick={() =>
+                handleTemplateClick(
+                  "Iltimos kurs uchun to’lovni vaqtida to’lang!"
+                )
+              }
               style={{
                 padding: "10px",
                 backgroundColor: "#EFEEF8",
@@ -306,7 +308,7 @@ const WidthMenu = () => {
                 borderRadius: "4px",
               }}
             >
-               Iltimos kurs uchun to’lovni vaqtida to’lang!
+              Iltimos kurs uchun to’lovni vaqtida to’lang!
             </div>
           </ModalComponent>
         </Box>

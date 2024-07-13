@@ -12,8 +12,7 @@ import Groups from "./components/pages/groups/groups";
 import Firstpage from "./components/home/firstpage";
 import Ceo from "./components/pages/settings/ceo/ceo";
 import Notifications from "./components/pages/notifications/notifications";
-import NotificationsDetail from "./components/pages/notifications/notificationsDetail";
-import { mockNotification } from './components/mock/notifications';
+
 
 const HideComp = () => {
   const location = useLocation();

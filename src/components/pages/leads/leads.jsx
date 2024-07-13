@@ -8,17 +8,21 @@ import { TextField, Select, MenuItem, Button } from "@mui/material";
 import HMenu from "./hMenu";
 import WidthMenu from "./wMenu";
 import LeadsModal from "./leadsModal";
+import { MenuItemStyled } from "../budget/budgetStyle";
 //styles from other components
 
 
 const Leads = () => {
   const [activeMenu, setActiveMenu] = useState("HMenu");
   const [lead, setLead] = useState(""); 
+  const [city, setCity] = useState(""); 
 
   const handleLead = (event) => {
     setLead(event.target.value);
   };
-
+ const handleCity = (event) => {
+    setCity(event.target.value);
+  };
   const renderMenu = () => {
     switch (activeMenu) {
       case "HMenu":
@@ -74,7 +78,7 @@ const Leads = () => {
           label="Search lead..."
           variant="outlined"
           className="textinput"
-          sx={{ background: "#fff", color:"#BFBAE3", width:"100%",}}
+          sx={{ background: "#fff", color:"#BFBAE3", width:"100%", height:"55px"}}
         />
         <Select
           sx={{
@@ -113,6 +117,12 @@ const Leads = () => {
           <MenuItem value="" disabled>
             Search for lead
           </MenuItem>
+           <MenuItemStyled value={1}>
+            Umarbek
+          </MenuItemStyled>
+           <MenuItemStyled value={2}>
+            Oymomo
+          </MenuItemStyled>
         </Select>
          <Select
           sx={{
@@ -144,13 +154,19 @@ const Leads = () => {
           }}
           labelId="demo-select-small-label"
           id="demo-select-small"
-          value={lead}
-          onChange={handleLead}
+          value={city}
+          onChange={handleCity}
           displayEmpty 
         >
           <MenuItem value="" disabled>
             From Where
           </MenuItem>
+          <MenuItemStyled value={1}>
+            Tashkent
+          </MenuItemStyled>
+           <MenuItemStyled value={2}>
+            New York
+          </MenuItemStyled>
         </Select>
          <Button
            sx={{

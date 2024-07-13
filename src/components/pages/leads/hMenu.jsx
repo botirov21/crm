@@ -16,7 +16,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import SecttionAccord from "./sectionAccord"
 import {
   AddTeacherBtn,
   ModalComponent,
@@ -184,6 +184,7 @@ const HMenu = () => {
             </ModalComponent>
           </Box>
         </Modal>
+        <SecttionAccord/>
       </SectionsCont>
     </HMenuContainer>
   );
