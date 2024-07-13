@@ -13,7 +13,6 @@ export const LeadsContainer = styled.div`
 export const LeadsNav = styled.article`
   display: flex;
   flex-direction: row;
-  justify-content: safe;
   align-items: center;
   gap: 20px;
 `;
@@ -62,13 +61,15 @@ export const HMenuContainer = styled.div`
 `;
 
 export const FromWhereCont = styled.article`
-  width: 387px;
-  height: 662px;
+width: 100%;
+  max-width: 387px;
+  min-height: 662px;
   flex-shrink: 0;
   border-radius: 16px;
   background: var(--Color-7, #fff);
   display: flex;
   flex-direction: column;
+  gap: 10px;
   align-items: start;
   padding: 20px;
   h1 {
@@ -82,7 +83,7 @@ export const FromWhereCont = styled.article`
 `;
 export const FromWhereBtn = styled.button`
   display: flex;
-  width: 347px;
+  width: 100%;
   height: 44px;
   padding: 10px 40px;
   flex-direction: column;
@@ -95,6 +96,36 @@ export const FromWhereBtn = styled.button`
   cursor: pointer;
   background: #fff;
 `;
+
+export const FromWhereInfo=styled.div`
+ display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  /* max-height: 60px; */
+  border-radius: 6px;
+  border: 1px solid var(--300, #bfbae3);
+`
+export const FromWhereInfosWr=styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  color: var(--600, #2c2669);
+  font-family: "Public Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; 
+  p {
+    color: var(--500, #6053b9);
+    font-family: "Public Sans";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; 
+  }
+`
 export const SectionsCont = styled.article`
   width: 387px;
   height: 916px;

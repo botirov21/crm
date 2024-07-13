@@ -2,6 +2,8 @@ import React from "react";
 import {
   FromWhereBtn,
   FromWhereCont,
+  FromWhereInfo,
+  FromWhereInfosWr,
   HMenuContainer,
   SectionsCont,
 } from "./leadsStyle";
@@ -9,6 +11,12 @@ import Box from "@mui/material/Box";
 import AddIcon from "@mui/icons-material/Add";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+
 import {
   AddTeacherBtn,
   ModalComponent,
@@ -31,13 +39,38 @@ const style = {
 const HMenu = () => {
   const [whereOpen, setWhereOpen] = React.useState(false);
   const [sectionOpen, setSectionOpen] = React.useState(false);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const menuOpen = Boolean(anchorEl);
+
   // from where 
   const handleWhereOpen = () => setWhereOpen(true);
   const handleClose = () => setWhereOpen(false);
 
-  //sections
-   const handleSectionOpen = () => setSectionOpen(true);
-  const handleSectionClose = () => setSectionOpen(false); 
+  // sections
+  const handleSectionOpen = () => setSectionOpen(true);
+  const handleSectionClose = () => setSectionOpen(false);
+
+  // menu handlers
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleEditClick = () => {
+    // Handle edit action
+    handleMenuClose();
+  };
+
+  const handleDeleteClick = () => {
+    // Handle delete action
+    handleMenuClose();
+  };
+
+
   return (
     <HMenuContainer>
       <FromWhereCont>
@@ -79,6 +112,38 @@ const HMenu = () => {
             </ModalComponent>
           </Box>
         </Modal>
+        <FromWhereInfo>
+          <FromWhereInfosWr>
+            Telegram
+            <p>30</p>
+          </FromWhereInfosWr>
+          <MoreVertIcon onClick={handleMenuClick} />
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={menuOpen}
+            onClose={handleMenuClose}
+            MenuListProps={{
+              "aria-labelledby": "basic-button",
+            }}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            <MenuItem
+              onClick={handleEditClick}
+              sx={{ display: "flex", gap: "10px", color: "#" }}
+            >
+              <EditIcon />
+              Edit
+            </MenuItem>
+            <MenuItem
+              onClick={handleDeleteClick}
+              sx={{ display: "flex", gap: "10px", color: "#000" }}
+            >
+              <DeleteIcon />
+              Delete
+            </MenuItem>
+          </Menu>
+        </FromWhereInfo>
       </FromWhereCont>
       <SectionsCont>
         <h1>Sections</h1>

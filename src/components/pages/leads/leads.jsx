@@ -74,7 +74,7 @@ const Leads = () => {
           label="Search lead..."
           variant="outlined"
           className="textinput"
-          sx={{ background: "#fff", color:"#BFBAE3", width:"100%",maxWidth:"200px"}}
+          sx={{ background: "#fff", color:"#BFBAE3", width:"100%",}}
         />
         <Select
           sx={{
@@ -101,7 +101,6 @@ const Leads = () => {
               borderRadius: "6px",
               background: "var(--Color-7, #FFF)",
               width:"100%",
-              maxWidth: "200px",
               color:"#BFBAE3"
             },
           }}
@@ -140,7 +139,6 @@ const Leads = () => {
               borderRadius: "6px",
               background: "var(--Color-7, #FFF)",
                width:"100%",
-              maxWidth: "200px",
               color:"#BFBAE3"
             },
           }}
@@ -165,7 +163,7 @@ const Leads = () => {
               lineHeight: "16px",
               borderRadius: "6px",
               background: "var(--Color-7, #FFF)",
-              width: "300px",
+              width: "100%",
               height:"55px",
               border:"1px solid #BFBAE3",
               color:"#BFBAE3"

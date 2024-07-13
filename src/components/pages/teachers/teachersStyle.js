@@ -17,6 +17,8 @@ export const TeachersTop = styled.article`
 `;
 
 export const AddTeacherButton = styled.button`
+display: flex;
+width: 100%;
   border-radius: 6px;
   background: var(
     --600,
@@ -26,7 +28,6 @@ export const AddTeacherButton = styled.button`
   display: inline-flex;
   flex-direction: row;
   height: 55px;
-    max-width: 350px;
   align-items: center;
   justify-content: center;
   gap: 10px;

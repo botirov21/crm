@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const GroupsCont=styled.div`
+display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   width: 100%;
   height: 100vh;
@@ -33,6 +34,5 @@ display: flex;
   align-items: center;
   width: 70%;
   height: 50vh;
-  margin-left: 390px;
   margin-top: 60px;
 `

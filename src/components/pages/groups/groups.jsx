@@ -7,6 +7,7 @@ import { mockGroup } from "../../mock/groups";
 import { Link } from "react-router-dom";
 import { DataGrid } from "@mui/x-data-grid";
 import { Avatar, Box } from "@mui/material";
+import { CustomCellThin, CustomCellBold } from "../budget/budgetStyle";
 
 const defaultAvatar = "/path/to/default/avatar.jpg"; // Replace with the path to your default avatar image
 
@@ -21,7 +22,7 @@ const getInitials = (fullName) => {
 const columns = [
   {
     field: "name",
-    headerName: "Group name",
+    headerName: <CustomCellThin>Groups name</CustomCellThin>,
     width: 400,
     renderCell: (params) => {
       const { name, profileImage } = params.row;
@@ -44,17 +45,42 @@ const columns = [
             to={`/groups/${params.row.id}`}
             style={{ textDecoration: "none", color: "inherit" }}
           >
-            {name || "No data"}
+            <CustomCellBold>{name || "No data"}</CustomCellBold>
           </Link>
         </Box>
       );
     },
   },
-  { field: "course", headerName: "Course", width: 200 },
-  { field: "teacher", headerName: "Teacher", width: 200 },
-  { field: "days", headerName: "Days", width: 170 },
-  { field: "room", headerName: "Rooms", width: 150 },
-  { field: "students", headerName: "Students", width: 150 },
+  {
+    field: "course",
+    headerName: <CustomCellThin>Course</CustomCellThin>,
+    width: 200,
+    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+  },
+  {
+    field: "teacher",
+    headerName: <CustomCellThin>Teacher</CustomCellThin>,
+    width: 200,
+    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
+  },
+  {
+    field: "days",
+    headerName: <CustomCellThin>Days</CustomCellThin>,
+    width: 170,
+    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+  },
+  {
+    field: "room",
+    headerName: <CustomCellThin>Rooms</CustomCellThin>,
+    width: 150,
+    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
+  },
+  {
+    field: "students",
+    headerName: <CustomCellThin>Students</CustomCellThin>,
+    width: 150,
+    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+  },
 ];
 
 const rows = mockGroup.groupInfo.map((group) => ({
@@ -65,7 +91,7 @@ const rows = mockGroup.groupInfo.map((group) => ({
   days: `${group.group.time.from} - ${group.group.time.to}` || "No data",
   room: group.group.room || "No data",
   students: group.group.students || "No data",
-  profileImage: group.group.profileImage || "", 
+  profileImage: group.group.profileImage || "",
 }));
 
 const Groups = () => {
@@ -74,7 +100,7 @@ const Groups = () => {
   const handleLead = (event) => {
     setLead(event.target.value);
   };
-  
+
   return (
     <GroupsCont>
       <GroupsNav>
@@ -85,14 +111,12 @@ const Groups = () => {
               ".MuiOutlinedInput-notchedOutline": {
                 border: "1px solid #BFBAE3",
               },
-              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                {
-                  border: 0,
-                },
-              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                {
-                  border: 0,
-                },
+              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
+                border: 0,
+              },
+              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                border: 0,
+              },
               ".MuiSvgIcon-root": {
                 color: "#2C2669",
               },
@@ -127,14 +151,12 @@ const Groups = () => {
               ".MuiOutlinedInput-notchedOutline": {
                 border: "1px solid #BFBAE3",
               },
-              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                {
-                  border: 0,
-                },
-              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                {
-                  border: 0,
-                },
+              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
+                border: 0,
+              },
+              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                border: 0,
+              },
               ".MuiSvgIcon-root": {
                 color: "#2C2669",
               },
@@ -169,14 +191,12 @@ const Groups = () => {
               ".MuiOutlinedInput-notchedOutline": {
                 border: "1px solid #BFBAE3",
               },
-              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                {
-                  border: 0,
-                },
-              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                {
-                  border: 0,
-                },
+              "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
+                border: 0,
+              },
+              "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                border: 0,
+              },
               ".MuiSvgIcon-root": {
                 color: "#2C2669",
               },
@@ -236,7 +256,7 @@ const Groups = () => {
           width: "60%",
           background: "#fff",
           display: "flex",
-          flexDirection:"column",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -259,17 +279,15 @@ const Groups = () => {
             "& .MuiDataGrid-cell:focus, & .MuiDataGrid-cell:focus-within": {
               outline: "none !important",
             },
-            "& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-columnHeader:focus-within":
-              {
-                outline: "none !important",
-              },
+            "& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-columnHeader:focus-within": {
+              outline: "none !important",
+            },
             "& .MuiDataGrid-columnHeader.Mui-focusVisible": {
               backgroundColor: "inherit",
             },
-            "& .MuiDataGrid-columnHeader.Mui-focusVisible .MuiDataGrid-columnHeaderTitle":
-              {
-                color: "inherit !important",
-              },
+            "& .MuiDataGrid-columnHeader.Mui-focusVisible .MuiDataGrid-columnHeaderTitle": {
+              color: "inherit !important",
+            },
             "& .MuiDataGrid-cell.Mui-focusVisible": {
               backgroundColor: "inherit !important",
             },

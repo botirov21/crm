@@ -5,7 +5,7 @@ export const mockGroup = {
             group: {
                 name: 'Ocean',
                 course: 'IT-Bootcamp',
-                 teacher:"U",
+                teacher:"U",
                 startDate: '01.07.2023',
                 students: '12',
                 room: '2',
