@@ -117,16 +117,19 @@ export const FromWhereInfosWr=styled.div`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 16px; 
+  line-height: 16px;
+  padding: 10px 16px; 
   p {
     color: var(--500, #6053b9);
     font-family: "Public Sans";
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
-    line-height: 30px; 
+    line-height: 30px;
+    margin: 0px;
   }
 `
+
 export const SectionsCont = styled.article`
   width: 387px;
   height: 916px;

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./sidebar.css";
-import locationIcon from "../../../assets/location-icon.svg";
-import leadsIcon from "../../../assets/leads-icon.svg";
-import teachersIcon from "../../../assets/teachers-icon.svg";
-import groupsIcon from "../../../assets/groups-icon.svg";
-import studentsIcon from "../../../assets/students-icon.svg";
-import budgetIcon from "../../../assets/budget-icon.svg";
-import notificationsIcon from "../../../assets/notification-icon.svg";
-import settingsIcon from "../../../assets/settings-icon.svg";
-import profileImage from "../../../assets/profile-image.png";
+import locationIcon from "../../../assets/./sidebar-icons/location-icon.svg";
+import leadsIcon from "../../../assets/./sidebar-icons/leads-icon.svg";
+import teachersIcon from "../../../assets/./sidebar-icons/teachers-icon.svg";
+import groupsIcon from "../../../assets/./sidebar-icons/groups-icon.svg";
+import studentsIcon from "../../../assets/./sidebar-icons/students-icon.svg";
+import budgetIcon from "../../../assets/./sidebar-icons/budget-icon.svg";
+import notificationsIcon from "../../../assets/./sidebar-icons/notification-icon.svg";
+import settingsIcon from "../../../assets/./sidebar-icons/settings-icon.svg";
+import profileImage from "../../../assets/./sidebar-icons/profile-image.png";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import backimg from "../../assets/homeimage.jpeg";
+import backimg from "../../assets/./welcome-pngs/homeimage.jpeg";
 export const HomeCont = styled.div`
   display: flex;
   flex-direction: column;
