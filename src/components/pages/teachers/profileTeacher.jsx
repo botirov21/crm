@@ -185,7 +185,8 @@ const ProfileTeacher = () => {
   };
 
   return (
-    <TeachersProfilePage>
+    <div style={{display:"flex", width:"100vw",alignItems:"center"}}>
+         <TeachersProfilePage>
       <TeacherTabConrol>
         <div
           className="tab-list"
@@ -225,6 +226,7 @@ const ProfileTeacher = () => {
       </TeacherTabConrol>
       <div className="tab-content">{renderContent()}</div>
     </TeachersProfilePage>
+    </div>
   );
 };
 

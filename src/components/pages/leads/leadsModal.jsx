@@ -39,7 +39,6 @@ export default function LeadsModal() {
   return (
     <div>
       <AddTeacherButton onClick={handleOpen}>
-        {" "}
         <AddIcon />
         Add <span>lead</span>
       </AddTeacherButton>
@@ -58,7 +57,7 @@ export default function LeadsModal() {
             </div>
             <div>
               <ModalLabel>Phone number</ModalLabel>
-              <ModalInput placeholder="Username" type="number" />
+              <ModalInput placeholder="Phone number" type="number" />
             </div>
             <div>
               <ModalLabel>Sections</ModalLabel>

@@ -253,7 +253,7 @@ const Groups = () => {
       </GroupsNav>
       <GroupsBody
         style={{
-          width: "60%",
+          width:"30%",
           background: "#fff",
           display: "flex",
           flexDirection: "column",
@@ -273,6 +273,7 @@ const Groups = () => {
           disableSelectionOnClick
           hideFooterSelectedRowCount
           sx={{
+            width:"70vw",
             backgroundColor: "var(--Color-7, #FFF)",
             borderRadius: "16px",
             border: "none",

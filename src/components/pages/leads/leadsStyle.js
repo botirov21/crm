@@ -14,7 +14,7 @@ export const LeadsNav = styled.article`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 80vw;
+  width: 70vw;
   gap: 20px;
 `;
 export const LeadsMenu = styled.div`
@@ -70,7 +70,6 @@ width: 100%;
   background: var(--Color-7, #fff);
   display: flex;
   flex-direction: column;
-  gap: 10px;
   align-items: start;
   padding: 20px;
   h1 {
@@ -107,6 +106,7 @@ export const FromWhereInfo=styled.div`
   /* max-height: 60px; */ 
   border-radius: 6px;
   border: 1px solid var(--300, #bfbae3);
+  margin-top: 10px;
 `
 export const FromWhereInfosWr=styled.div`
   display: flex;

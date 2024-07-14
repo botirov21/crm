@@ -17,7 +17,7 @@ import {
   ViewWrapper,
 } from "./notificationsStyle"; 
 import { mockNotification } from "../../mock/notifications";
-import viewIcon from "../../../assets/notification-icons/notificationView-icon.svg";
+// import viewIcon from "../../../assets/notification-icons/notificationView-icon.svg";
 import NotificationModal from "./notificationModal";
 
 const Notifications = () => {
@@ -51,7 +51,7 @@ const Notifications = () => {
                 <BlogInfosWrapper>
                   <Date>{value.notification.date}</Date>
                   <ViewWrapper>
-                    <img src={viewIcon} alt="view" />
+                    {/* <img src={viewIcon} alt="view" /> */}
                     <View>{value.notification.view}</View>
                   </ViewWrapper>
                 </BlogInfosWrapper>

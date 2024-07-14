@@ -5,9 +5,9 @@ import IconButton from "@mui/material/IconButton";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import EditIcon from "@mui/icons-material/Edit";
-import SmsIcon from "@mui/icons-material/Sms";
-import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "../../../assets/leadsIcons/editIcon.svg";
+import SmsIcon from "../../../assets/leadsIcons/smsIcon.svg";
+import DeleteIcon from "../../../assets/leadsIcons/deleteIcon.svg";
 import AddIcon from "@mui/icons-material/Add";
 import { Avatar, Box, FormControl, Select } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -19,7 +19,12 @@ import {
   ModalInput,
   ModalLabel,
 } from "../teachers/teachersStyle";
-import { MenuItemStyled, ModalTextarea } from "../budget/budgetStyle";
+import {
+  CustomCellBold,
+  CustomCellThin,
+  MenuItemStyled,
+  ModalTextarea,
+} from "../budget/budgetStyle";
 
 const defaultAvatar = "/path/to/default/avatar.jpg"; // Replace with the path to your default avatar image
 
@@ -45,10 +50,15 @@ const getInitials = (fullName) => {
 
 // Column definitions with the new profile image column
 const columns = (handleMenuOpen) => [
-  { field: "id", headerName: "ID", width: 100 },
+  {
+    field: "id",
+    headerName: <CustomCellThin>ID</CustomCellThin>,
+    width: 100,
+    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+  },
   {
     field: "fullName",
-    headerName: "Lead name",
+    headerName: <CustomCellThin>Lead Name</CustomCellThin>,
     width: 500,
     renderCell: (params) => {
       const { fullName, profileImg } = params.row;
@@ -71,21 +81,31 @@ const columns = (handleMenuOpen) => [
             to={`/leads/${params.row.id}`}
             style={{ textDecoration: "none", color: "inherit" }}
           >
-            {fullName || "No data"}
+            <CustomCellBold>{fullName || "No data"}</CustomCellBold>
           </Link>
         </Box>
       );
     },
   },
-  { field: "phoneNumber", headerName: "Phone number", width: 300 },
-  { field: "fromWhere", headerName: "From Where", width: 200 },
+  {
+    field: "phoneNumber",
+    headerName: <CustomCellThin>Phone number</CustomCellThin>,
+    width: 300,
+    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+  },
+  {
+    field: "fromWhere",
+    headerName: <CustomCellThin>From Where</CustomCellThin>,
+    width: 200,
+    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
+  },
   {
     field: "section",
-    headerName: "Section",
+    headerName: <CustomCellBold>Section</CustomCellBold>,
     width: 200,
     renderCell: (params) => (
       <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
-        <span>{params.value}</span>
+        <CustomCellThin>{params.value}</CustomCellThin>
         <IconButton
           aria-label="more"
           style={{ marginLeft: "auto" }}
@@ -168,7 +188,7 @@ const WidthMenu = () => {
   const [smsText, setSmsText] = useState("");
 
   return (
-    <div style={{ height: "50vh", width: "80vw", background: "#fff" }}>
+    <div style={{ height: "50vh", width: "70vw", background: "#fff" }}>
       <DataGrid
         rows={rows}
         columns={columns(handleMenuOpen)}
@@ -217,21 +237,21 @@ const WidthMenu = () => {
           onClick={handleEditClick}
           sx={{ display: "flex", gap: "10px", color: "#6053B9" }}
         >
-          <EditIcon />
+          <img src={EditIcon} alt="edit" />
           Edit
         </MenuItem>
         <MenuItem
           onClick={handleDeleteClick}
           sx={{ display: "flex", gap: "10px", color: "#6053B9" }}
         >
-          <DeleteIcon />
+          <img src={DeleteIcon} alt="delete" />
           Delete
         </MenuItem>
         <MenuItem
           onClick={handleSmsClick}
           sx={{ display: "flex", gap: "10px", color: "#6053B9" }}
         >
-          <SmsIcon />
+          <img src={SmsIcon} alt="sms" />
           Sms
         </MenuItem>
         <MenuItem
@@ -266,7 +286,6 @@ const WidthMenu = () => {
       >
         <Box sx={style}>
           <ModalComponent>
-            {/* SMS form or content */}
             <h1>Send SMS</h1>
             <ModalTextarea
               placeholder="Enter text"

@@ -19,6 +19,7 @@ export const TeachersTop = styled.article`
 export const AddTeacherButton = styled.button`
 display: flex;
 width: 100%;
+max-width: 400px;
   border-radius: 6px;
   background: var(
     --600,
@@ -127,7 +128,6 @@ export const TeachersProfilePage = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-
   height: 100vh;
   padding-top: 60px;
   background: var(--100, #EFEEF8);
@@ -238,10 +238,11 @@ export const TeacherInfoDetails = styled.div`
 `;
 //teachers  page tab controller
 export const TeacherTabConrol = styled.div`
-  width: 60%;
+  width: 100%;
   height: 50px;
   display: flex;
- 
+  align-items: center;
+  justify-content: center;
   padding-bottom: 100px;
 
   .tab-list {
@@ -262,9 +263,12 @@ export const TeacherTabConrol = styled.div`
   }
 
   .tab-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 10px;
-    width: 100%;
-    
+    width: 100%;    
   }
   
 `
@@ -274,7 +278,8 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 width: 60%;
-height: 100vh;
+justify-content: center;
+align-items: center;
 
 `
 export const GroupsInfo=styled.div`
@@ -368,7 +373,6 @@ width: 100%;
 `
 export const SeeGroupBtn=styled.button`
 display: inline-flex;
-
 justify-content: center;
 align-items: center;
 gap: 10px;
@@ -388,3 +392,4 @@ line-height: 16px;
   color: #2C2669;
 }
 `
+//income table styles

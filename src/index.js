@@ -12,6 +12,7 @@ import Groups from "./components/pages/groups/groups";
 import Firstpage from "./components/home/firstpage";
 import Ceo from "./components/pages/settings/ceo/ceo";
 import Notifications from "./components/pages/notifications/notifications";
+import GroupProfile from "./components/pages/groups/groupProfile";
 
 
 const HideComp = () => {
@@ -30,6 +31,7 @@ const HideComp = () => {
         <Route path="/teachers" element={<Teachers />} />
         <Route path="/teachers/:id" element={<ProfileTeacher />} />
         <Route path="/groups" element={<Groups />} />
+        <Route path="/groups/:groupId" element={<GroupProfile/>}/>
         <Route path="/budget" element={<Budget />} />
         <Route path="/ceo" element={<Ceo/>} />
         <Route path="/notifications" element={<Notifications/>} />

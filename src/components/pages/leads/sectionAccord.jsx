@@ -8,9 +8,9 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import InfoIcon from "@mui/icons-material/Info";
-import EditIcon from "@mui/icons-material/Edit";
-import SmsIcon from "@mui/icons-material/Sms";
-import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "../../../assets/leadsIcons/editIcon.svg";
+import SmsIcon from "../../../assets/leadsIcons/smsIcon.svg";
+import DeleteIcon from "../../../assets/leadsIcons/deleteIcon.svg";
 import AddIcon from "@mui/icons-material/Add";
 import { Box, FormControl, Select, Modal } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -222,21 +222,21 @@ const SectionAccord = () => {
           onClick={handleEditClick}
           sx={{ display: "flex", gap: "10px", color: "#000" }}
         >
-          <EditIcon />
+          <img src={EditIcon} alt="edit"/>
           Edit
         </MenuItem>
         <MenuItem
           onClick={handleDeleteClick}
           sx={{ display: "flex", gap: "10px", color: "#000" }}
         >
-          <DeleteIcon />
+          <img src={DeleteIcon} alt="delete"/>
           Delete
         </MenuItem>
         <MenuItem
           onClick={handleSmsClick}
           sx={{ display: "flex", gap: "10px", color: "#000" }}
         >
-          <SmsIcon />
+          <img src={SmsIcon} alt="sms"/>
           Sms
         </MenuItem>
         <MenuItem

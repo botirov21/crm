@@ -14,8 +14,9 @@ import Modal from "@mui/material/Modal";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "../../../assets/leadsIcons/editIcon.svg";
+
+import DeleteIcon from "../../../assets/leadsIcons/deleteIcon.svg";
 import SecttionAccord from "./sectionAccord"
 import {
   AddTeacherBtn,
@@ -132,14 +133,14 @@ const HMenu = () => {
               onClick={handleEditClick}
               sx={{ display: "flex", gap: "10px", color: "#" }}
             >
-              <EditIcon />
+              <img src={EditIcon} alt="editIcon"/>
               Edit
             </MenuItem>
             <MenuItem
               onClick={handleDeleteClick}
               sx={{ display: "flex", gap: "10px", color: "#000" }}
             >
-              <DeleteIcon />
+              <img src={DeleteIcon} alt="Delete Icon"/>
               Delete
             </MenuItem>
           </Menu>
