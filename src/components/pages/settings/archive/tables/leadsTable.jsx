@@ -1,10 +1,9 @@
 import React, { useState, useCallback } from "react";
-import { mockBranch } from "../../../mock/./setting-ceo/ceoBranch"; 
+import { mockGroup } from "../../../../mock/setting-archive/group"; 
 import { DataGrid } from "@mui/x-data-grid";
 import { Button, IconButton } from "@mui/material";
-import editIcon from "../../../../assets/./settings-icons/settingEdit-icon.svg"
-import pauseIcon from "../../../../assets/./settings-icons/settingPause.svg"
-
+import editIcon from "../../../../../assets/settings-icons/settingEdit-icon.svg"
+import refreshIcon from "../../../../../assets/settings-icons/refresh-icon.svg"
 import {
   Dialog,
   DialogActions,
@@ -19,16 +18,17 @@ import {
   CustomCellThin,
   DeleteActionWrap,
   EditActionWrap,
-} from "./ceoStyle";
+} from "../archiveStyle";
 
-const initialData = mockBranch.branchInfo.map((branch) => ({
-  id: branch.id,
-  fullName: branch.branch.fullName || "No data",
-  status: branch.branch.status || "No data",
-  balance: branch.branch.balance || "No data",
+const initialData = mockGroup.mockGroup.map((group) => ({
+  id: group.id,
+  name: group.group.name || "No data",
+  course: group.group.course || "No data",
+  teacher: group.group.teacher || "No data",
+  date: group.group.date || "No data",
 }));
 
-export default function BranchesDataTable() {
+export default function GroupsTable() {
   const [rows, setRows] = useState(initialData);
   const [open, setOpen] = useState(false);
   const [currentRow, setCurrentRow] = useState(null);
@@ -60,11 +60,11 @@ export default function BranchesDataTable() {
   const columns = [
     { field: "id", headerName: <CustomCellBold>ID</CustomCellBold>, width: 50,
     renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,},
-    { field: "fullName", headerName: <CustomCellThin>Branch name</CustomCellThin>, flex: 1 ,
+    { field: "Group name", headerName: <CustomCellThin>Group name</CustomCellThin>, flex: 1 ,
     renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold> },
-    { field: "status", headerName: <CustomCellThin>Status</CustomCellThin>, flex: 1, 
+    { field: "Course", headerName: <CustomCellThin>Course</CustomCellThin>, flex: 1, 
     renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin> },
-    { field: "balance", headerName: <CustomCellThin>Balance</CustomCellThin>, flex: 1, 
+    { field: "Teacher", headerName: <CustomCellThin>Teacher</CustomCellThin>, flex: 1, 
     renderCell: (params) => <CustomCellColored>{params.value}</CustomCellColored> }, 
     {
       field: "More",
@@ -85,7 +85,7 @@ export default function BranchesDataTable() {
             onClick={() => handleDeleteClick(params.id)}
           >
             <DeleteActionWrap>
-              <img src={pauseIcon} alt="pause" />
+              <img src={refreshIcon} alt="pause" />
             </DeleteActionWrap>
           </IconButton>
         </strong>

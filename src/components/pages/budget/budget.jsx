@@ -9,12 +9,12 @@ import {
   ExpenseModalWrapper,
 } from "./budgetStyle";
 import { FormControl, Select } from "@mui/material";
-import CategoryDataTable from "./categoryTable";
-import CategoryModal from "./categoryModal";
-import ExpenseDataTable from "./expenseTable";
-import ExpenseModal from "./expenseModal";
+import CategoryDataTable from "./tables/categoryTable";
+import CategoryModal from "./modals/categoryModal";
+import ExpenseDataTable from "./tables/expenseTable";
+import ExpenseModal from "./modals/expenseModal";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import IncomeTable from "./incomeTable";
+import IncomeTable from "./tables/incomeTable";
 
 const Budget = () => {
   const [value, setValue] = useState("New elementary");

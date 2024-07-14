@@ -15,7 +15,7 @@ import {
   RadioInput,
   RadioLabel,
   RadioWrapper,
-} from "./budgetStyle";
+} from "../budgetStyle";
 import {
   Select,
 } from "@mui/material";
@@ -80,6 +80,7 @@ export default function ExpenseModal() {
               <ModalLabel>Select category</ModalLabel>
               <Select
                 sx={{
+                  height: "40px",
                   boxShadow: "none",
                   background: "var(--100, #efeef8)",
                   borderRadius: "8px",
@@ -105,7 +106,6 @@ export default function ExpenseModal() {
                     fontWeight: 400,
                     fontStyle: "normal",
                     lineHeight: "0px",
-                    height: "40px",
                   },
                   ".MuiSvgIcon-root": {
                     color: "#6053B9",
@@ -132,6 +132,7 @@ export default function ExpenseModal() {
               <ModalLabel>Select employe</ModalLabel>
               <Select
                 sx={{
+                  height: "40px",
                   boxShadow: "none",
                   background: "var(--100, #efeef8)",
                   borderRadius: "8px",

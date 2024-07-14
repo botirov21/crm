@@ -1,8 +1,10 @@
-import styled from "@emotion/styled";
-import {MenuItem } from "@mui/material";
+import styled from "styled-components";
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
-//style for budget
-export const BudgetComponent = styled.div`
+
+//style for ceo table controll
+export const ArchiveComponent = styled.div`
   height: 100vh;
   background: #efeef8;
   display: flex;
@@ -13,7 +15,7 @@ export const BudgetComponent = styled.div`
   padding-top: 40px;
 `;
 
-export const BudgetTabConrol = styled.div`
+export const ArchiveTabConrol = styled.div`
   width: 60%;
   max-width: 60%;
   height: 50px;
@@ -42,63 +44,12 @@ export const BudgetTabConrol = styled.div`
   }
 `;
 
-export const BudgetTabConrolWrap = styled.div`
+export const ArchiveTabConrolWrap = styled.div`
   display: flex;
   justify-content: space-between;
   width: 70%;
   align-items: center;
   padding: 0px;
-`;
-
-export const FilterWrapper = styled.div`
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  width: 69%;
-  justify-content: space-between;
-
-`;
-
-export const TotalValue = styled.p`
-  color: var(--500, #6053b9);
-  font-family: "Public Sans";
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 40px;
-  margin: 0px;
-`;
-
-//style for text of raws in budget table
-export const CustomCellThin = styled.p`
-color: var(--500, #6053B9);
-
-font-family: "Public Sans";
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 16px;
-
-`;
-
-export const CustomCellBold = styled.p`
-color: var(--600, #2C2669);
-font-family: "Public Sans";
-font-size: 14px;
-font-style: normal;
-font-weight: 700;
-line-height: 16px;
-`;
-
-
-//overide Style for mui select(menu item) component
-export const MenuItemStyled = styled(MenuItem)`
-  font-family: "Public Sans";
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  line-height: 16px;
-  color: var(--500, #6053b9);
 `;
 
 //modal Style
@@ -182,13 +133,8 @@ export const ModalInput = styled.input`
   &:focus {
     outline: groove;
   }
-  ::placeholder {
-    color: var(--200, #cfcbea);
-    font-family: "Public Sans";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
+  &::placeholder{
+    color: var(--200, #CFCBEA);
   }
 `;
 
@@ -209,13 +155,8 @@ export const ModalTextarea  = styled.textarea`
   &:focus {
     outline: groove;
   }
-  ::placeholder {
-    color: var(--200, #cfcbea);
-    font-family: "Public Sans";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
+  &::placeholder{
+    color: var(--200, #CFCBEA);
   }
 `;
 export const CreateBtn = styled.button`
@@ -246,7 +187,7 @@ export const CreateBtn = styled.button`
 export const DeleteActionWrap = styled.div`
 display: flex;
 border-radius: 5px;
-border: 2px solid #FF2E00;
+border: 2px solid var(--600, #2C2669);
 padding: 5px;
 `
 export const EditActionWrap = styled.div`
@@ -263,7 +204,6 @@ justify-content: end;
 `
 export const RadioContent = styled.div`
 display: flex;
-flex-direction: column;
 gap:5px;
 `;
 
@@ -274,7 +214,8 @@ gap: 8px;
 `;
 
 export const RadioInput = styled.input`
-
+border-radius: 4px;
+border: 1px solid var(--400, #A098D5);
 `;
 
 export const RadioLabel = styled.label`
@@ -285,5 +226,55 @@ font-style: normal;
 font-weight: 500;
 line-height: 16px; 
 `
+
+export const UploadButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--200, #cfcbea);
+  background: var(--100, #efeef8);
+  color: var(--200, #CFCBEA);
+  font-family: "Public Sans";
+  font-size: clamp(20px, 2vw+1rem, 24px);
+  font-style: normal;
+  padding-left: 10px;
+  cursor: pointer;
+`
+//style for text of raws in staff table
+export const CustomCellThin = styled.p`
+color: var(--500, #6053B9);
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 16px;
+
+`;
+
+export const CustomCellBold = styled.p`
+color: var(--600, #2C2669);
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 16px;
+`;
+
+export const CustomCellColored = styled.p`
+color: var(--Color-7, #FFF);
+font-family: "Public Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 16px;
+background: var(--600, linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #2C2669);
+width: max-content;
+border-radius: 6px;
+padding: 5px;
+`;
+
 
 

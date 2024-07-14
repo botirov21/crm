@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const MainWrapper = styled.div`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: end;
   justify-content: center;
   height: 100vh;
@@ -17,12 +17,12 @@ export const ModalWrapper = styled.div`
 `;
 
 export const PageTitle = styled.h2`
-color: var(--600, #2C2669);
-font-family: "Public Sans";
-font-size: 28px;
-font-style: normal;
-font-weight: 700;
-line-height: 30px; 
+  color: var(--600, #2c2669);
+  font-family: "Public Sans";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
 `;
 
 export const BlogContainer = styled.div`
@@ -32,7 +32,6 @@ export const BlogContainer = styled.div`
   height: 80%;
   width: 100%;
   gap: 20px;
-
 `;
 
 export const BlogWrapper = styled.div`
@@ -48,15 +47,15 @@ export const Container = styled.div`
   height: 100%;
   width: 60%;
   border-radius: 16px 0px 0px 16px;
-  background: var(--Color-7, #FFF);
-  overflow-x: hidden; 
-  overflow-y: auto; 
+  background: var(--Color-7, #fff);
+  overflow-x: hidden;
+  overflow-y: auto;
 `;
 
 export const Blog = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom: 2px solid var(--200, #CFCBEA);
+  border-bottom: 2px solid var(--200, #cfcbea);
   justify-content: start;
   background-color: ${(props) => (props.activeColor ? `#F3F2F2` : ``)};
   width: 100%;
@@ -65,12 +64,12 @@ export const Blog = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: #F3F2F2;
+    background: #f3f2f2;
   }
 `;
 
 export const Title = styled.p`
-  color: var(--600, #2C2669);
+  color: var(--600, #2c2669);
   font-family: "Public Sans";
   font-size: 16px;
   font-style: normal;
@@ -88,52 +87,52 @@ export const BlogInfosWrapper = styled.div`
 `;
 
 export const Date = styled.p`
-color: var(--300, #BFBAE3);
-font-family: "Public Sans";
-font-size: 12px;
-font-style: normal;
-font-weight: 500;
-margin: 0px;
+  color: var(--300, #bfbae3);
+  font-family: "Public Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  margin: 0px;
 `;
 
 export const ViewWrapper = styled.p`
-display: flex;
-gap: 5px;
+  display: flex;
+  gap: 5px;
 `;
 
 export const View = styled.p`
-color: var(--300, #BFBAE3);
-font-family: "Public Sans";
-font-size: 12px;
-font-style: normal;
-font-weight: 500;
-line-height: 14px;
-margin: 0px;
+  color: var(--300, #bfbae3);
+  font-family: "Public Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  margin: 0px;
 `;
 export const BlogDetailWrap = styled.div`
   display: flex;
   height: 80%;
   flex: 1;
   border-radius: 0px 16px 16px 0px;
-  background: var(--Color-7, #FFF);
+  background: var(--Color-7, #fff);
   padding: 1% 1%;
 `;
 
 export const DetailTitle = styled.p`
-color: var(--600, #2C2669);
-font-family: "Public Sans";
-font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: 30px; /* 150% */
+  color: var(--600, #2c2669);
+  font-family: "Public Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px; /* 150% */
 `;
 export const DetailText = styled.p`
-color: var(--600, #2C2669);
-font-family: "Public Sans";
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 16px; /* 114.286% */
+  color: var(--600, #2c2669);
+  font-family: "Public Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 114.286% */
 `;
 
 //modal Style
@@ -176,20 +175,34 @@ export const ModalComponent = styled.div`
     font-weight: 700;
     line-height: 32px;
   }
-  .modalTextarea{
+`;
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 17px;
+  .ql-container {
+    border: none;
+  }
+  .ql-toolbar {
+    border: none;
+    background: var(--200, #cfcbea);
+  }
+  .quillStyle {
     border-radius: 8px;
     border: none;
     background: var(--100, #efeef8);
-    height: 150px;
+    height: 200px;
   }
-
+  .ql-editor.ql-blank::before {
+    color: var(--200, #cfcbea);
+    font-family: "Public Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
 `;
-export const InputWrapper=styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-top: 17px;
-`
 export const ModalLabel = styled.label`
   color: var(--500, #6053b9);
   font-family: "Public Sans";
@@ -199,7 +212,7 @@ export const ModalLabel = styled.label`
   line-height: 16px;
   align-self: stretch;
   padding: 5px 0px;
-  margin:0px;
+  margin: 0px;
 `;
 export const ModalInput = styled.input`
   display: flex;
@@ -209,7 +222,7 @@ export const ModalInput = styled.input`
   border-radius: 8px;
   border: 1px solid var(--200, #cfcbea);
   background: var(--100, #efeef8);
-  color: var(--600, #2C2669);
+  color: var(--600, #2c2669);
   font-family: "Public Sans";
   font-size: clamp(20px, 2vw+1rem, 24px);
   font-style: normal;
@@ -219,15 +232,23 @@ export const ModalInput = styled.input`
   &:focus {
     outline: groove;
   }
+  ::placeholder {
+    color: var(--200, #cfcbea);
+    font-family: "Public Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
 `;
-export const ModalTextarea  = styled.textarea`
+export const ModalTextarea = styled.textarea`
   display: flex;
   max-width: 100%;
   align-self: stretch;
   border-radius: 8px;
   border: 1px solid var(--200, #cfcbea);
   background: var(--100, #efeef8);
-  color: var(--600, #2C2669);
+  color: var(--600, #2c2669);
   font-family: "Public Sans";
   font-size: clamp(20px, 2vw+1rem, 24px);
   font-style: normal;

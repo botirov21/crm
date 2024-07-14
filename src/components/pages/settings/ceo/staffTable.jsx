@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { mockStaff } from "../../../mock/ceoStaff";
+import { mockStaff } from "../../../mock/./setting-ceo/ceoStaff";
 import { Avatar, Box, IconButton, Menu, MenuItem } from "@mui/material";
 import { CustomCellBold, CustomCellThin } from "./ceoStyle";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
