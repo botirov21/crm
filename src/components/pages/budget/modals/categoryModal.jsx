@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import AddIcon from '@mui/icons-material/Add';
 import Modal from "@mui/material/Modal";
-import {AddButton, CreateBtn, InputWrapper, ModalComponent, ModalInput, ModalLabel } from "./budgetStyle";
+import {AddButton, CreateBtn, InputWrapper, ModalComponent, ModalInput, ModalLabel } from "../budgetStyle";
 const style = {
   position: "absolute",
   top: "50%",

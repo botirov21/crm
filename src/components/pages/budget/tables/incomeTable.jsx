@@ -1,8 +1,8 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { mockBudget } from "../../mock/budget";
+import { mockBudget } from "../../../mock/budget/budget";
 import { Avatar, Box } from "@mui/material";
-import { CustomCellBold, CustomCellThin } from "./budgetStyle";
+import { CustomCellBold, CustomCellThin } from "../budgetStyle";
 
 const columns = [
   {  

@@ -53,7 +53,7 @@ export default function NotificationModal() {
             </InputWrapper>
             <InputWrapper>
               <ModalLabel>Content</ModalLabel>
-              <ReactQuill  placeholder="Enter text" className="modalTextarea" theme="snow" value={value} onChange={setValue} />
+              <ReactQuill  placeholder="Write content" className="quillStyle" theme="snow" value={value} onChange={setValue} />
             </InputWrapper>
             <InputWrapper>
               <CreateBtn>Create blog </CreateBtn>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Blog,
   BlogContainer,
@@ -15,25 +15,35 @@ import {
   Title,
   View,
   ViewWrapper,
-} from "./notificationsStyle"; 
-import { mockNotification } from "../../mock/notifications";
-import viewIcon from "../../../assets/./notifications-icons/notificationView-icon.svg";
+} from "./notificationsStyle";
+import { mockNotification } from "../../mock/./notification/notifications";
+import viewIcon from "../../../assets/notifications-icons/notificationView-icon.svg";
 import NotificationModal from "./notificationModal";
 
 const Notifications = () => {
   const [selectedNotification, setSelectedNotification] = useState(null);
   const [selectedBlogId, setSelectedBlogId] = useState("");
 
+  useEffect(() => {
+    if (mockNotification.notificationInfo.length > 0) {
+      setSelectedNotification(mockNotification.notificationInfo[0].notification);
+      setSelectedBlogId(mockNotification.notificationInfo[0].id);
+    }
+  }, []);
+
   const handleNotificationClick = (notification) => {
     setSelectedNotification(notification);
   };
+
   const handleBackgroundClick = (id) => {
     setSelectedBlogId(id);
   };
+
   return (
     <MainWrapper>
       <ModalWrapper>
-        <PageTitle>Notifications</PageTitle> <NotificationModal />
+        <PageTitle>Notifications</PageTitle>
+        <NotificationModal />
       </ModalWrapper>
       <BlogContainer>
         <BlogWrapper>

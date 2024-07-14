@@ -12,6 +12,7 @@ import Groups from "./components/pages/groups/groups";
 import Firstpage from "./components/home/firstpage";
 import Ceo from "./components/pages/settings/ceo/ceo";
 import Notifications from "./components/pages/notifications/notifications";
+import Archive from "./components/pages/settings/archive/archive";
 
 
 const HideComp = () => {
@@ -31,8 +32,9 @@ const HideComp = () => {
         <Route path="/teachers/:id" element={<ProfileTeacher />} />
         <Route path="/groups" element={<Groups />} />
         <Route path="/budget" element={<Budget />} />
-        <Route path="/ceo" element={<Ceo/>} />
         <Route path="/notifications" element={<Notifications/>} />
+        <Route path="/ceo" element={<Ceo/>} />
+        <Route path="/archive" element={<Archive/>} />
       </Routes>
     </React.StrictMode>
   );

@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from "react";
-import { mockBudget } from "../../mock/budget"; // Ensure the path is correct
+import { mockGroup } from "../../../../mock/setting-archive/group"; 
 import { DataGrid } from "@mui/x-data-grid";
 import { Button, IconButton } from "@mui/material";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import editIcon from "../../../../../assets/settings-icons/settingEdit-icon.svg"
+import refreshIcon from "../../../../../assets/settings-icons/refresh-icon.svg"
 import {
   Dialog,
   DialogActions,
@@ -13,17 +13,22 @@ import {
   TextField,
 } from "@mui/material";
 import {
+  CustomCellBold,
+  CustomCellColored,
   CustomCellThin,
   DeleteActionWrap,
   EditActionWrap,
-} from "./budgetStyle";
+} from "../archiveStyle";
 
-const initialData = mockBudget.budgetInfo.map((budget) => ({
-  id: budget.id,
-  category: budget.budget.category || "No data",
+const initialData = mockGroup.mockGroup.map((group) => ({
+  id: group.id,
+  name: group.group.name || "No data",
+  course: group.group.course || "No data",
+  teacher: group.group.teacher || "No data",
+  date: group.group.date || "No data",
 }));
 
-export default function CategoryDataTable() {
+export default function GroupsTable() {
   const [rows, setRows] = useState(initialData);
   const [open, setOpen] = useState(false);
   const [currentRow, setCurrentRow] = useState(null);
@@ -53,16 +58,17 @@ export default function CategoryDataTable() {
   }, [currentRow, editCategory]);
 
   const columns = [
-    { field: "id", headerName: <CustomCellThin>ID</CustomCellThin>, width: 50 },
+    { field: "id", headerName: <CustomCellBold>ID</CustomCellBold>, width: 50,
+    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,},
+    { field: "Group name", headerName: <CustomCellThin>Group name</CustomCellThin>, flex: 1 ,
+    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold> },
+    { field: "Course", headerName: <CustomCellThin>Course</CustomCellThin>, flex: 1, 
+    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin> },
+    { field: "Teacher", headerName: <CustomCellThin>Teacher</CustomCellThin>, flex: 1, 
+    renderCell: (params) => <CustomCellColored>{params.value}</CustomCellColored> }, 
     {
-      field: "category",
-      headerName: <CustomCellThin>Category</CustomCellThin>,
-      flex: 1,
-      renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
-    },
-    {
-      field: "actions",
-      headerName: "Actions",
+      field: "More",
+      headerName: <CustomCellThin>More</CustomCellThin>,
       width: 150,
       renderCell: (params) => (
         <strong>
@@ -71,7 +77,7 @@ export default function CategoryDataTable() {
             onClick={() => handleEditClick(params.id)}
           >
             <EditActionWrap>
-              <EditOutlinedIcon sx={{ color: "#2C2669" }} />
+              <img src={editIcon} alt="edit" />
             </EditActionWrap>
           </IconButton>
           <IconButton
@@ -79,7 +85,7 @@ export default function CategoryDataTable() {
             onClick={() => handleDeleteClick(params.id)}
           >
             <DeleteActionWrap>
-              <DeleteOutlineOutlinedIcon sx={{ color: "#FF2E00" }} />
+              <img src={refreshIcon} alt="pause" />
             </DeleteActionWrap>
           </IconButton>
         </strong>
@@ -123,7 +129,6 @@ export default function CategoryDataTable() {
           },
         }}
       />
-
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Edit Category</DialogTitle>
         <DialogContent>

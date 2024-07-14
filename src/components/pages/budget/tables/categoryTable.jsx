@@ -1,10 +1,9 @@
 import React, { useState, useCallback } from "react";
-import { mockBranch } from "../../../mock/./setting-ceo/ceoBranch"; 
+import { mockBudget } from "../../../mock/budget/budget"; // Ensure the path is correct
 import { DataGrid } from "@mui/x-data-grid";
 import { Button, IconButton } from "@mui/material";
-import editIcon from "../../../../assets/./settings-icons/settingEdit-icon.svg"
-import pauseIcon from "../../../../assets/./settings-icons/settingPause.svg"
-
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import {
   Dialog,
   DialogActions,
@@ -14,21 +13,17 @@ import {
   TextField,
 } from "@mui/material";
 import {
-  CustomCellBold,
-  CustomCellColored,
   CustomCellThin,
   DeleteActionWrap,
   EditActionWrap,
-} from "./ceoStyle";
+} from "../budgetStyle";
 
-const initialData = mockBranch.branchInfo.map((branch) => ({
-  id: branch.id,
-  fullName: branch.branch.fullName || "No data",
-  status: branch.branch.status || "No data",
-  balance: branch.branch.balance || "No data",
+const initialData = mockBudget.budgetInfo.map((budget) => ({
+  id: budget.id,
+  category: budget.budget.category || "No data",
 }));
 
-export default function BranchesDataTable() {
+export default function CategoryDataTable() {
   const [rows, setRows] = useState(initialData);
   const [open, setOpen] = useState(false);
   const [currentRow, setCurrentRow] = useState(null);
@@ -58,17 +53,16 @@ export default function BranchesDataTable() {
   }, [currentRow, editCategory]);
 
   const columns = [
-    { field: "id", headerName: <CustomCellBold>ID</CustomCellBold>, width: 50,
-    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,},
-    { field: "fullName", headerName: <CustomCellThin>Branch name</CustomCellThin>, flex: 1 ,
-    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold> },
-    { field: "status", headerName: <CustomCellThin>Status</CustomCellThin>, flex: 1, 
-    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin> },
-    { field: "balance", headerName: <CustomCellThin>Balance</CustomCellThin>, flex: 1, 
-    renderCell: (params) => <CustomCellColored>{params.value}</CustomCellColored> }, 
+    { field: "id", headerName: <CustomCellThin>ID</CustomCellThin>, width: 50 },
     {
-      field: "More",
-      headerName: <CustomCellThin>More</CustomCellThin>,
+      field: "category",
+      headerName: <CustomCellThin>Category</CustomCellThin>,
+      flex: 1,
+      renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+    },
+    {
+      field: "actions",
+      headerName: "Actions",
       width: 150,
       renderCell: (params) => (
         <strong>
@@ -77,7 +71,7 @@ export default function BranchesDataTable() {
             onClick={() => handleEditClick(params.id)}
           >
             <EditActionWrap>
-              <img src={editIcon} alt="edit" />
+              <EditOutlinedIcon sx={{ color: "#2C2669" }} />
             </EditActionWrap>
           </IconButton>
           <IconButton
@@ -85,7 +79,7 @@ export default function BranchesDataTable() {
             onClick={() => handleDeleteClick(params.id)}
           >
             <DeleteActionWrap>
-              <img src={pauseIcon} alt="pause" />
+              <DeleteOutlineOutlinedIcon sx={{ color: "#FF2E00" }} />
             </DeleteActionWrap>
           </IconButton>
         </strong>
@@ -129,6 +123,7 @@ export default function BranchesDataTable() {
           },
         }}
       />
+
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Edit Category</DialogTitle>
         <DialogContent>
