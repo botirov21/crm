@@ -1,9 +1,9 @@
 export const mockGroup = {
-    mockGroup: [
+    mockInfo: [
         {
             id: 1,
             group: {
-                name: 'Ocean',
+                fullName: 'Ocean',
                 course: 'IT-Bootcamp',
                 teacher:"John",
                 date: '24.02.2024 | 06.06.2024',
@@ -12,7 +12,7 @@ export const mockGroup = {
         {
             id: 2,
            group: {
-                name: 'Choyxona',
+            fullName: 'Choyxona',
                 course: 'IT-Bootcamp',
                 teacher:"Kim",
                 date: '24.02.2024 | 06.06.2024',
@@ -21,7 +21,7 @@ export const mockGroup = {
         {
             id: 3,
             group: {
-                name: 'Sinfdoshlar',
+                fullName: 'Sinfdoshlar',
                 course: 'IT-Bootcamp',
                 teacher:"John",
                 date: '24.02.2024 | 06.06.2024',
@@ -30,7 +30,7 @@ export const mockGroup = {
         {
             id: 4,
             group: {
-                name: 'Intensive',
+                fullName: 'Intensive',
                 course: 'IT-Bootcamp',
                 teacher:"John",
                 date: '24.02.2024 | 06.06.2024',
@@ -39,7 +39,7 @@ export const mockGroup = {
         {
             id: 5,
             group: {
-                name: 'Apple Group',
+                fullName: 'Apple Group',
                 course: 'IT-Bootcamp',
                 teacher:"John",
                 date: '24.02.2024 | 06.06.2024',

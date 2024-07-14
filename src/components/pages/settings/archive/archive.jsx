@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import { ArchiveComponent, ArchiveTabConrol, ArchiveTabConrolWrap } from "./archiveStyle";
-import StaffsTable from "./tables/staffsTable";
 import GroupsTable from "./tables/groupsTable";
 import StudentsTable from "./tables/studentsTable";
+import StaffTable from "./tables/staffsTable";
 import LeadsTable from "./tables/leadsTable";
 
 const Archive = () => {
@@ -14,11 +14,11 @@ const Archive = () => {
       case "Groups":
         return <GroupsTable/>;
       case "Students":
-        return <GroupsTable/>;
+        return <StudentsTable/>;
       case "Staff":
-        return <GroupsTable/>;
+        return <StaffTable/>;
       case "Leads":
-        return <GroupsTable/>;
+        return <LeadsTable/>;
       default:
         return null;
     }

@@ -2,7 +2,7 @@ export const mockStudent = {
     studentInfo: [
       {
         id: 1,
-        lead: {
+        student: {
           fullName: "Andrew Smith",
           phoneNumber: "01012345678",
           balance: "-200.000 UZS",
@@ -10,7 +10,7 @@ export const mockStudent = {
       },
       {
         id: 2,
-        lead: {
+        student: {
           fullName: "Saud",
           phoneNumber: "01012345678",
           balance: "-200.000 UZS",
@@ -18,7 +18,7 @@ export const mockStudent = {
       },
       {
         id: 3,
-        lead: {
+        student: {
           fullName: "Vladmir Putin",
           phoneNumber: "01012345678",
           balance: "-200.000 UZS",
@@ -26,7 +26,7 @@ export const mockStudent = {
       },
       {
         id: 4,
-        lead: {
+        student: {
           fullName: "Kim Chen In",
           phoneNumber: "01012345678",
           balance: "-200.000 UZS",
@@ -34,7 +34,7 @@ export const mockStudent = {
       },
       {
         id: 5,
-        lead: {
+        student: {
           fullName: "Yun Seok Yeol",
           phoneNumber: "01012345678",
           balance: "-200.000 UZS",
@@ -42,7 +42,7 @@ export const mockStudent = {
       },
       {
         id: 6,
-        lead: {
+        student: {
           fullName: "Joe Biden",
           phoneNumber: "998995556677",
           balance: "-200.000 UZS",

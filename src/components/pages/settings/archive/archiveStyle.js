@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
 
@@ -187,7 +186,7 @@ export const CreateBtn = styled.button`
 export const DeleteActionWrap = styled.div`
 display: flex;
 border-radius: 5px;
-border: 2px solid var(--600, #2C2669);
+border: 2px solid #FF2E00;;
 padding: 5px;
 `
 export const EditActionWrap = styled.div`
@@ -251,9 +250,15 @@ font-size: 14px;
 font-style: normal;
 font-weight: 500;
 line-height: 16px;
-
 `;
-
+export const CustomToolBar = styled.p`
+color: var(--400, #A098D5);
+font-family: "Public Sans";
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: 14px;
+`;
 export const CustomCellBold = styled.p`
 color: var(--600, #2C2669);
 font-family: "Public Sans";

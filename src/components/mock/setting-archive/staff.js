@@ -5,7 +5,7 @@ export const mockStaff = {
             staff: {
                 fullName: 'Ceo Demo',
                 number: '(91) 234 56 78',
-                Role: 'Ceo',
+                role: 'Ceo',
             }
         },
         {
