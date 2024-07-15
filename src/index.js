@@ -39,8 +39,6 @@ const HideComp = () => {
         <Route path="/budget" element={<Budget />} />
         <Route path="/notifications" element={<Notifications/>} />
         <Route path="/ceo" element={<Ceo/>} />
-
-        <Route path="/archive" element={<Archive/>}/>
         <Route path="/archive" element={<Archive/>} />
         <Route path="/office" element={<Office/>} />
       </Routes>
