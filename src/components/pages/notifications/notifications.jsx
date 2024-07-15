@@ -16,16 +16,11 @@ import {
   Title,
   View,
   ViewWrapper,
-<<<<<<< HEAD
 } from "./notificationsStyle"; 
 // import viewIcon from "../../../assets/notification-icons/notificationView-icon.svg";
 import { mockNotification } from "../../mock/notification/notifications";
-import NotificationModal from "./notificationModal";
-=======
-} from "./notificationsStyle";
-import { mockNotification } from "../../mock/./notification/notifications";
 import viewIcon from "../../../assets/notifications-icons/notificationView-icon.svg";
->>>>>>> 6180642f1bf580d9ff2c3790f79bd2449cb7439b
+
 
 const Notifications = () => {
   const [selectedNotification, setSelectedNotification] = useState(null);
