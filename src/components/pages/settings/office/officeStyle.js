@@ -2,16 +2,17 @@ import styled from "styled-components";
 import 'react-phone-input-2/lib/style.css';
 
 
-//style for ceo table controll
-export const ArchiveComponent = styled.div`
+//style for office table controll
+export const OfficeComponent = styled.div`
   height: 100vh;
   background: #efeef8;
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
   padding-left: 20%;
   gap: 20px;
   width: 100%;
-  padding-top: 40px;
+  padding-top: 20px;
 `;
 
 export const PageTitle = styled.h2`
@@ -21,9 +22,10 @@ export const PageTitle = styled.h2`
   font-style: normal;
   font-weight: 700;
   line-height: 30px;
+  margin: 0px;
 `;
 
-export const ArchiveTabConrol = styled.div`
+export const OfficeTabConrol = styled.div`
   width: 60%;
   max-width: 60%;
   height: 50px;
@@ -52,7 +54,7 @@ export const ArchiveTabConrol = styled.div`
   }
 `;
 
-export const ArchiveTabConrolWrap = styled.div`
+export const OfficeTabConrolWrap = styled.div`
   display: flex;
   justify-content: space-between;
   width: 70%;

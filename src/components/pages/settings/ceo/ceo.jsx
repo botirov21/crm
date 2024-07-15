@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import StaffTable from "./staffTable";
-import { CeoComponent, CeoTabConrol, CeoTabConrolWrap } from "./ceoStyle";
+import { CeoComponent, CeoTabConrol, CeoTabConrolWrap, PageTitle } from "./ceoStyle";
 import StaffModal from "./staffModal";
 import BranchesDataTable from "./branchesTable";
 import BranchModal from "./branchModal";
@@ -22,6 +22,7 @@ const Ceo = () => {
 
   return (
     <CeoComponent>
+      <PageTitle>Ceo</PageTitle>
       <CeoTabConrolWrap>
         <CeoTabConrol>
           <div

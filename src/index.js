@@ -14,6 +14,7 @@ import Ceo from "./components/pages/settings/ceo/ceo";
 import Notifications from "./components/pages/notifications/notifications";
 import GroupProfile from "./components/pages/groups/groupProfile";
 import Archive from "./components/pages/settings/archive/archive";
+import Office from "./components/pages/settings/office/office";
 
 
 const HideComp = () => {
@@ -37,6 +38,7 @@ const HideComp = () => {
         <Route path="/notifications" element={<Notifications/>} />
         <Route path="/ceo" element={<Ceo/>} />
         <Route path="/archive" element={<Archive/>} />
+        <Route path="/office" element={<Office/>} />
       </Routes>
     </React.StrictMode>
   );

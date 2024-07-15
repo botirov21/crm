@@ -18,7 +18,7 @@ import {
   ViewWrapper,
 } from "./notificationsStyle";
 import { mockNotification } from "../../mock/./notification/notifications";
-// import viewIcon from "../../../assets/notifications-icons/notificationView-icon.svg";
+import viewIcon from "../../../assets/notifications-icons/notificationView-icon.svg";
 
 const Notifications = () => {
   const [selectedNotification, setSelectedNotification] = useState(null);
@@ -48,9 +48,9 @@ const Notifications = () => {
       <BlogContainer>
         <BlogWrapper>
           <Container>
-            {mockNotification.notificationInfo.map((value) => (
+            {mockNotification.notificationInfo.map((value, key) => (
               <Blog
-                key={value.notification.id}
+                key={key}
                 onClick={() => {
                   handleNotificationClick(value.notification);
                   handleBackgroundClick(value.id);
@@ -61,7 +61,7 @@ const Notifications = () => {
                 <BlogInfosWrapper>
                   <Date>{value.notification.date}</Date>
                   <ViewWrapper>
-                    {/* <img src={viewIcon} alt="view" /> */}
+                    <img src={viewIcon} alt="view" />
                     <View>{value.notification.view}</View>
                   </ViewWrapper>
                 </BlogInfosWrapper>

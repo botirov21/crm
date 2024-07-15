@@ -7,6 +7,7 @@ import {
   TotalValue,
   MenuItemStyled,
   ExpenseModalWrapper,
+  PageTitle,
 } from "./budgetStyle";
 import { FormControl, Select } from "@mui/material";
 import CategoryDataTable from "./tables/categoryTable";
@@ -44,6 +45,7 @@ const Budget = () => {
 
   return (
     <BudgetComponent>
+      <PageTitle >Budget</PageTitle>
       <BudgetTabConrolWrap>
         <BudgetTabConrol>
           <div

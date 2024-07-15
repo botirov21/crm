@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 import {
   CustomCellBold,
-  CustomCellColored,
   CustomCellThin,
   CustomToolBar,
   DeleteActionWrap,
