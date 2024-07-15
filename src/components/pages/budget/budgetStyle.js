@@ -269,7 +269,7 @@ gap:5px;
 
 export const RadioWrapper = styled.div`
 display: flex;
-align-items: center;
+/* align-items: center; */
 gap: 8px;
 `;
 

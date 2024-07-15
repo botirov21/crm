@@ -13,11 +13,11 @@ import {
 //mui components
 import { styled, alpha } from "@mui/material/styles";
 import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import EditIcon from "@mui/icons-material/Edit";
 import Divider from "@mui/material/Divider";
-import DeleteIcon from "@mui/icons-material/Delete";
-import SmsIcon from "@mui/icons-material/Sms";
+import MenuItem from "@mui/material/MenuItem";
+import EditIcon from "../../../assets/leadsIcons/editIcon.svg";
+import DeleteIcon from "../../../assets/leadsIcons/deleteIcon.svg";
+import SmsIcon from "../../../assets/leadsIcons/smsIcon.svg";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import NoInformationPage from "../../others/messages/noInfoPage";
 import TeacherGroups from "./teacherGroups";
@@ -130,17 +130,17 @@ const ProfileTeacher = () => {
                   open={open}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleClose} disableRipple>
-                    <EditIcon />
+                  <MenuItem sx={{gap:"10px"}} onClick={handleClose} disableRipple>
+                    <img src={EditIcon} alt="edit"/>
                     Edit
                   </MenuItem>
-                  <MenuItem onClick={handleClose} disableRipple>
-                    <SmsIcon />
+                  <MenuItem sx={{gap:"10px"}}  onClick={handleClose} disableRipple>
+                    <img src={SmsIcon} alt="sms" />
                     SMS
                   </MenuItem>
                   <Divider sx={{ my: 0.5 }} />
-                  <MenuItem onClick={handleClose} disableRipple>
-                    <DeleteIcon />
+                  <MenuItem sx={{gap:"10px"}}  onClick={handleClose} disableRipple>
+                    <img src={DeleteIcon} alt="delete" />
                     Delete
                   </MenuItem>
                 </StyledMenu>

@@ -85,7 +85,6 @@ export const ModalInput = styled.input`
   border-radius: 8px;
   border: 1px solid var(--200, #cfcbea);
   background: var(--100, #efeef8);
-  color: var(--200, #cfcbea);
   font-family: "Public Sans";
   font-size: clamp(20px, 2vw+1rem, 24px);
   font-style: normal;
