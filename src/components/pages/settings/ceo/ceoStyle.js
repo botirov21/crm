@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
 //style for text of raws in staff table
@@ -46,7 +45,14 @@ export const CeoComponent = styled.div`
   width: 100%;
   padding-top: 40px;
 `;
-
+export const PageTitle = styled.h2`
+  color: var(--600, #2c2669);
+  font-family: "Public Sans";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+`;
 export const CeoTabConrol = styled.div`
   width: 60%;
   max-width: 60%;

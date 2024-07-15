@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from "react";
-import { mockGroup } from "../../../../mock/setting-archive/group"; 
+import { mockGroup } from "../../../../mock/setting-archive/group";
 import { DataGrid } from "@mui/x-data-grid";
-import { Button, IconButton } from "@mui/material";
-import editIcon from "../../../../../assets/settings-icons/settingEdit-icon.svg"
-import refreshIcon from "../../../../../assets/settings-icons/refresh-icon.svg"
+import { Avatar, Box, Button, IconButton } from "@mui/material";
+import deleteIcon from "../../../../../assets/settings-icons/settingDelete-icon.svg";
+import refreshIcon from "../../../../../assets/settings-icons/refresh-icon.svg";
 import {
   Dialog,
   DialogActions,
@@ -16,16 +16,17 @@ import {
   CustomCellBold,
   CustomCellColored,
   CustomCellThin,
+  CustomToolBar,
   DeleteActionWrap,
   EditActionWrap,
 } from "../archiveStyle";
 
-const initialData = mockGroup.mockGroup.map((group) => ({
+const initialData = mockGroup.mockInfo.map((group) => ({
   id: group.id,
-  name: group.group.name || "No data",
-  course: group.group.course || "No data",
-  teacher: group.group.teacher || "No data",
-  date: group.group.date || "No data",
+  "FullName": group.group.fullName || "No data",
+  Course: group.group.course || "No data",
+  Teacher: group.group.teacher || "No data",
+  Date: group.group.date || "No data",
 }));
 
 export default function GroupsTable() {
@@ -58,17 +59,53 @@ export default function GroupsTable() {
   }, [currentRow, editCategory]);
 
   const columns = [
-    { field: "id", headerName: <CustomCellBold>ID</CustomCellBold>, width: 50,
-    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,},
-    { field: "Group name", headerName: <CustomCellThin>Group name</CustomCellThin>, flex: 1 ,
-    renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold> },
-    { field: "Course", headerName: <CustomCellThin>Course</CustomCellThin>, flex: 1, 
-    renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin> },
-    { field: "Teacher", headerName: <CustomCellThin>Teacher</CustomCellThin>, flex: 1, 
-    renderCell: (params) => <CustomCellColored>{params.value}</CustomCellColored> }, 
     {
-      field: "More",
-      headerName: <CustomCellThin>More</CustomCellThin>,
+      field: "id",
+      headerName: <CustomToolBar>ID</CustomToolBar>,
+      width: 50,
+      renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
+    },
+    {
+      field: "Group name",
+      headerName: <CustomToolBar>Group name</CustomToolBar>,
+      flex: 1,
+      renderCell: (params) => (
+        <Box display="flex" alignItems="center">
+          <Avatar
+            alt={params.row.fullName}
+            src={params.row.profileImage}
+            sx={{
+              width: 30,
+              height: 30,
+              marginRight: 1,
+              background: "var(--400, #A098D5)",
+            }}
+          />
+          <CustomCellBold>{params.row.FullName || "No data"}</CustomCellBold>
+        </Box>
+      ),
+    },
+    {
+      field: "Course",
+      headerName: <CustomToolBar>Course</CustomToolBar>,
+      flex: 1,
+      renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
+    },
+    {
+      field: "Teacher",
+      headerName: <CustomToolBar>Teacher</CustomToolBar>,
+      flex: 1,
+      renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
+    },
+    {
+      field: "Date",
+      headerName: <CustomToolBar>Date</CustomToolBar>,
+      flex: 1,
+      renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
+    },
+    {
+      field: "Action",
+      headerName: <CustomToolBar>Action</CustomToolBar>,
       width: 150,
       renderCell: (params) => (
         <strong>
@@ -77,7 +114,7 @@ export default function GroupsTable() {
             onClick={() => handleEditClick(params.id)}
           >
             <EditActionWrap>
-              <img src={editIcon} alt="edit" />
+              <img src={refreshIcon} alt="edit" />
             </EditActionWrap>
           </IconButton>
           <IconButton
@@ -85,7 +122,7 @@ export default function GroupsTable() {
             onClick={() => handleDeleteClick(params.id)}
           >
             <DeleteActionWrap>
-              <img src={refreshIcon} alt="pause" />
+              <img style={{ color: "#FF2E00" }} src={deleteIcon} alt="delete" />
             </DeleteActionWrap>
           </IconButton>
         </strong>

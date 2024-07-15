@@ -1,45 +1,43 @@
 import React, { useState } from "react";
 
-import { ArchiveComponent, ArchiveTabConrol, ArchiveTabConrolWrap, PageTitle } from "./archiveStyle";
-import GroupsTable from "./tables/groupsTable";
-import StudentsTable from "./tables/studentsTable";
-import StaffTable from "./tables/staffsTable";
-import LeadsTable from "./tables/leadsTable";
+import { OfficeComponent, OfficeTabConrol, OfficeTabConrolWrap, PageTitle } from "./officeStyle";
+import Courses from "./tables/courses/courses";
 
-const Archive = () => {
-  const [activeTab, setActiveTab] = useState("Groups");
+
+const Office = () => {
+  const [activeTab, setActiveTab] = useState("Courses");
 
   const renderContent = () => {
     switch (activeTab) {
-      case "Groups":
-        return <GroupsTable/>;
-      case "Students":
-        return <StudentsTable/>;
-      case "Staff":
-        return <StaffTable/>;
-      case "Leads":
-        return <LeadsTable/>;
+      case "Courses":
+        return <Courses/>;
+      case "Rooms":
+        return <Courses/>;
+      case "SmsTemplates":
+        return <Courses/>;
+      case "SmsLogs":
+        return <Courses/>;
       default:
         return null;
     }
   };
 
   return (
-    <ArchiveComponent>
-      <PageTitle>Archive</PageTitle>
-      <ArchiveTabConrolWrap>
-        <ArchiveTabConrol>
+    <OfficeComponent>
+      <PageTitle>Office</PageTitle>
+      <OfficeTabConrolWrap>
+        <OfficeTabConrol>
           <div
             className="tab-list"
-            onClick={() => setActiveTab("Groups")}
+            onClick={() => setActiveTab("Courses")}
             style={{
               borderRadius: "6px 0px 0px 6px",
               backgroundColor:
-                activeTab === "Groups" ? "#2C2669" : "transparent",
-              color: activeTab === "Groups" ? "#fff" : "#2C2669",
+                activeTab === "Courses" ? "#2C2669" : "transparent",
+              color: activeTab === "Courses" ? "#fff" : "#2C2669",
             }}
           >
-            Groups
+            Courses
           </div>
           <div
             className="tab-list"
@@ -75,11 +73,11 @@ const Archive = () => {
           >
             Leads
           </div>
-        </ArchiveTabConrol>
-      </ArchiveTabConrolWrap>
+        </OfficeTabConrol>
+      </OfficeTabConrolWrap>
       <div className="tab-content">{renderContent()}</div>
-    </ArchiveComponent>
+    </OfficeComponent>
   );
 };
 
-export default Archive;
+export default Office;
