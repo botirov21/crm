@@ -9,12 +9,13 @@ export const LeadsContainer = styled.div`
   height: 100vh;
   background: var(--100, #efeef8);
   margin-top: 60px;
+  
 `;
 export const LeadsNav = styled.article`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 70vw;
+  width: 80%;
   gap: 20px;
 `;
 export const LeadsMenu = styled.div`
@@ -42,9 +43,11 @@ export const LeadsMenu = styled.div`
 `;
 export const MenuDisplay = styled.div`
   display: flex;
-  justify-content: start;
+  justify-content: center;
   margin-top: 60px;
   align-items: center;
+  width: 70%;
+  
 `;
 
 //H Menu style

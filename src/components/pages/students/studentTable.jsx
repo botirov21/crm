@@ -91,7 +91,7 @@ const columns = (handleMenuOpen) => [
   {
     field: "phoneNumber",
     headerName: <CustomCellThin>Phone number</CustomCellThin>,
-    width: 250,
+    width: 150,
     renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
   },
   {
@@ -187,7 +187,7 @@ const StudentsTable = () => {
   const [smsText, setSmsText] = useState("");
 
   return (
-    <div style={{ height: "50vh", width: "70vw", background: "#fff" }}>
+    <div style={{ height: "50vh", width: "63vw", background: "#fff" }}>
       <DataGrid
         rows={rows}
         columns={columns(handleMenuOpen)}

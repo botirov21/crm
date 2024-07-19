@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { TeacherTabConrol, TeachersProfilePage } from "./teachersStyle";
-import IncomeTable from "./incomeTable";
-import ExpenseTable from "./expenseTable";
+import DataTable from "../budget/tables/expenseTable";
+import IncomeTable from "../budget/tables/incomeTable";
+// import IncomeTable from "./incomeTable";
+// import ExpenseTable from "./expenseTable";
 
 const TeacherSalary = () => {
   const [activeTab, setActiveTab] = useState("Income");
@@ -9,9 +11,9 @@ const TeacherSalary = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "Income":
-        return <div><IncomeTable/></div>;
+        return <div style={{display:"flex", width:"1000px"}}><IncomeTable/></div>;
       case "Expense":
-        return <div><ExpenseTable/></div>;
+        return <div><DataTable/></div>;
       default:
         return null;
     }
@@ -46,7 +48,7 @@ const TeacherSalary = () => {
           Expense
         </div>
       </TeacherTabConrol>
-      <div style={{display:"flex", width:"100vw",justifyContent:"center", alignItems:"center"}} className="tab-content">{renderContent()}</div>
+      <div style={{display:"flex", width:"1000px",justifyContent:"center", alignItems:"center"}} className="tab-content">{renderContent()}</div>
     </TeachersProfilePage>
   );
 };

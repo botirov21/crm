@@ -26,13 +26,14 @@ const Student = () => {
 
   return (
     <LeadsContainer>
-      <LeadsNav>
+      <div style={{display:"flex", width:"80%",justifyContent:"center"}}>
+        <LeadsNav>
         <TextField
           id="outlined-basic"
           label="Search for student..."
           variant="outlined"
           className="textinput"
-          sx={{ background: "#fff", color:"#BFBAE3", width:"100%", height:"55px"}}
+          sx={{ background: "#fff", color:"#BFBAE3", width:"30%", height:"55px"}}
         />
         <Select
           sx={{
@@ -177,7 +178,7 @@ const Student = () => {
               lineHeight: "16px",
               borderRadius: "6px",
               background: "var(--Color-7, #FFF)",
-              width: "100%",
+              width: "30%",
               height:"55px",
               border:"1px solid #BFBAE3",
               color:"#BFBAE3"
@@ -188,6 +189,7 @@ const Student = () => {
       </Button>
       <StudentModal/>
       </LeadsNav>
+      </div>
       <MenuDisplay>
         <StudentsTable/>
       </MenuDisplay>

@@ -15,12 +15,13 @@ export const GroupsNav = styled.nav`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  width: 100%;
+  width: 79%;
   gap: 20px;
+  /* max-width: 900px; */
   .group-left {
     display: flex;
     flex-direction: row;
-    justify-content: safe;
+    justify-content: start;
     align-items: center;
     gap: 20px;
   }
@@ -32,9 +33,10 @@ export const GroupsBody = styled.article`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 65vw;
   height: 50vh;
   margin-top: 60px;
+  max-width: 900px;
 `;
 
 //individual prizes styles

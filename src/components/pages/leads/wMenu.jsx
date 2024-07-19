@@ -53,13 +53,13 @@ const columns = (handleMenuOpen) => [
   {
     field: "id",
     headerName: <CustomCellThin>ID</CustomCellThin>,
-    width: 100,
+    width: 50,
     renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
   },
   {
     field: "fullName",
     headerName: <CustomCellThin>Lead Name</CustomCellThin>,
-    width: 500,
+    width: 400,
     renderCell: (params) => {
       const { fullName, profileImg } = params.row;
       const initials = getInitials(fullName);
@@ -90,19 +90,19 @@ const columns = (handleMenuOpen) => [
   {
     field: "phoneNumber",
     headerName: <CustomCellThin>Phone number</CustomCellThin>,
-    width: 300,
+    width: 200,
     renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
   },
   {
     field: "fromWhere",
     headerName: <CustomCellThin>From Where</CustomCellThin>,
-    width: 200,
+    width: 150,
     renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
   },
   {
     field: "section",
     headerName: <CustomCellBold>Section</CustomCellBold>,
-    width: 200,
+    width: 0,
     renderCell: (params) => (
       <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
         <CustomCellThin>{params.value}</CustomCellThin>
@@ -188,7 +188,7 @@ const WidthMenu = () => {
   const [smsText, setSmsText] = useState("");
 
   return (
-    <div style={{ height: "50vh", width: "70vw", background: "#fff" }}>
+    <div style={{ height: "50vh", width: "60vw", background: "#fff" }}>
       <DataGrid
         rows={rows}
         columns={columns(handleMenuOpen)}

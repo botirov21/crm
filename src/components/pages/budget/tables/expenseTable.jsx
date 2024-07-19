@@ -56,7 +56,7 @@ const rows = mockBudget.budgetInfo.map((budget) => ({
 
 export default function DataTable() {
   return (
-    <div style={{ height: 400, width: "100%", maxWidth: "70%" }}>
+    <div style={{ height: 400, width: "100%",}}>
       <DataGrid
         rows={rows}
         columns={columns}

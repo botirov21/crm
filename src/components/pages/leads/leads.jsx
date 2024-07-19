@@ -44,7 +44,8 @@ const Leads = () => {
 
   return (
     <LeadsContainer>
-      <LeadsNav>
+    <div style={{display:"flex", width:"80vw", justifyContent:"center", flexDirection:"column", alignItems:"center"}}>
+       <LeadsNav>
         <LeadsMenu>
           <div
             className="menu-handle"
@@ -191,6 +192,7 @@ const Leads = () => {
       <LeadsModal/>
       </LeadsNav>
       <MenuDisplay>{renderMenu()}</MenuDisplay>
+    </div>
     </LeadsContainer>
   );
 };

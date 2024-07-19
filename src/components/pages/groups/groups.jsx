@@ -23,7 +23,7 @@ const columns = [
   {
     field: "name",
     headerName: <CustomCellThin>Groups name</CustomCellThin>,
-    width: 400,
+    width: 300,
     renderCell: (params) => {
       const { name, profileImage } = params.row;
       const initials = getInitials(name);
@@ -54,19 +54,19 @@ const columns = [
   {
     field: "course",
     headerName: <CustomCellThin>Course</CustomCellThin>,
-    width: 200,
+    width: 150,
     renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
   },
   {
     field: "teacher",
     headerName: <CustomCellThin>Teacher</CustomCellThin>,
-    width: 200,
+    width: 150,
     renderCell: (params) => <CustomCellBold>{params.value}</CustomCellBold>,
   },
   {
     field: "days",
     headerName: <CustomCellThin>Days</CustomCellThin>,
-    width: 170,
+    width: 150,
     renderCell: (params) => <CustomCellThin>{params.value}</CustomCellThin>,
   },
   {
@@ -253,7 +253,6 @@ const Groups = () => {
       </GroupsNav>
       <GroupsBody
         style={{
-          width:"30%",
           background: "#fff",
           display: "flex",
           flexDirection: "column",
@@ -273,7 +272,6 @@ const Groups = () => {
           disableSelectionOnClick
           hideFooterSelectedRowCount
           sx={{
-            width:"70vw",
             backgroundColor: "var(--Color-7, #FFF)",
             borderRadius: "16px",
             border: "none",
