@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  ChangedStatus,
   DateUpdate,
   DivideStatus,
   HistoryWrap,

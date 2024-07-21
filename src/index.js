@@ -12,16 +12,15 @@ import Groups from "./components/pages/groups/groups";
 import Firstpage from "./components/home/firstpage";
 import Ceo from "./components/pages/settings/ceo/ceo";
 import Notifications from "./components/pages/notifications/notifications";
-import GroupProfile from "../src/components/pages/groups/groupProfile"
+import GroupProfile from "../src/components/pages/groups/groupProfile";
 import Archive from "./components/pages/settings/archive/archive";
 import Student from "./components/pages/students/student";
 import Office from "./components/pages/settings/office/office";
-
+import UserProfile from "./components/pages/profile/profile";
 
 const HideComp = () => {
   const location = useLocation();
 
- 
   const isFirstPage = location.pathname === "/";
 
   return (
@@ -33,14 +32,15 @@ const HideComp = () => {
         <Route path="/leads" element={<Leads />} />
         <Route path="/teachers" element={<Teachers />} />
         <Route path="/teachers/:id" element={<ProfileTeacher />} />
-        <Route path="/groups" element={<Groups/>} />
-        <Route path="/groups/:groupId" element={<GroupProfile/>}/>
-        <Route path="/students" element={<Student/>}/>
+        <Route path="/groups" element={<Groups />} />
+        <Route path="/groups/:groupId" element={<GroupProfile />} />
+        <Route path="/students" element={<Student />} />
         <Route path="/budget" element={<Budget />} />
-        <Route path="/notifications" element={<Notifications/>} />
-        <Route path="/ceo" element={<Ceo/>} />
-        <Route path="/archive" element={<Archive/>} />
-        <Route path="/office" element={<Office/>} />
+        <Route path="/notifications" element={<Notifications />} />
+        <Route path="/ceo" element={<Ceo />} />
+        <Route path="/archive" element={<Archive />} />
+        <Route path="/office" element={<Office />} />
+        <Route path="/profile" element={<UserProfile/>}/>
       </Routes>
     </React.StrictMode>
   );
